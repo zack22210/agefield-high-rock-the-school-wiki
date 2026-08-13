@@ -29,8 +29,9 @@ else
   git clone --depth 1 "$SEOSCOUT_REPO" "$SEOSCOUT_SRC"
 fi
 
+python3 "$ROOT/scripts/patch-seoscout-trafilatura.py" "$SEOSCOUT_SRC"
 python3 -m pip install --user -e "$SEOSCOUT_SRC"
-python3 -m pip install --user "yt-dlp>=2024.1.0"
+python3 -m pip install --user "yt-dlp>=2024.1.0" "trafilatura>=2.0,<3"
 
 mkdir -p "$SEOSCOUT_CFG"
 if [[ ! -f "$SEOSCOUT_CFG/.env" ]]; then

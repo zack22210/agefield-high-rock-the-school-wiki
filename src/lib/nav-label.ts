@@ -1,8 +1,6 @@
-const NAV_SLUG_PREFIX = "finish-the-word-";
+const NAV_SLUG_PREFIX = "agefield-high-rock-the-school-";
 
-const ACRONYM_LABELS: Record<string, string> = {
-  ftw: "FTW",
-};
+const ACRONYM_LABELS: Record<string, string> = {};
 
 function formatWord(word: string): string {
   const lower = word.toLowerCase();
@@ -27,13 +25,13 @@ export function slugToNavLabel(slug: string): string {
 
 export function shortenTitleForNav(title: string): string {
   const colonMatch = title.match(/^[^:]+:\s*(.+)$/);
-  if (colonMatch && /finish the word|ftw/i.test(title)) {
+  if (colonMatch && /agefield high/i.test(title)) {
     return colonMatch[1].trim();
   }
 
   return title
     .replace(/^(mastering|master|unlock|dominate)\s+(the\s+)?/i, "")
-    .replace(/^(finish the word|ftw)[:\s-]*/i, "")
+    .replace(/^agefield high(?:\s*:\s*|\s+)rock the school[:\s-]*/i, "")
     .trim();
 }
 

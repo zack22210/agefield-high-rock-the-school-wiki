@@ -1,0 +1,264 @@
+{
+  "modules": [
+    {
+      "order": 1,
+      "name": "Agefield High Rock the School Beginner Guide",
+      "description": "Start Sam's senior year with the core systems explained in a practical order. This guide covers school attendance, free exploration, earning pocket money, and preparing for missions without inventing mechanics the game does not have.",
+      "href": "/beginner-guide",
+      "displayType": "step-by-step",
+      "highlights": [
+        {
+          "label": "1",
+          "detail": "Learn the weekday time and school system, which keeps Sam in lessons until the afternoon when he attends class."
+        },
+        {
+          "label": "2",
+          "detail": "Balance attendance against skipping class; good grades earn pocket money, while side missions provide another way to earn cash."
+        },
+        {
+          "label": "3",
+          "detail": "Explore the school campus, two neighborhoods, town center, and countryside when Sam is not in class or a main mission."
+        },
+        {
+          "label": "4",
+          "detail": "Spend earnings at shops on useful and cosmetic options including bicycles, clothes, hairstyles, tattoos, and accessories."
+        }
+      ],
+      "references": [
+        "https://www.refugiumgames.net/",
+        "https://store.steampowered.com/app/3562580/Agefield_High_Rock_the_School/",
+        "https://www.youtube.com/watch?v=ClY-3UopEeU"
+      ]
+    },
+    {
+      "order": 2,
+      "name": "Agefield High Rock the School Mission Walkthrough",
+      "description": "Follow the complete story structure and optional activity checklist for Sam's final months at Agefield High. The game officially contains 32 main missions and 15 side missions or activities across an estimated 8–10-hour story.",
+      "href": "/missions",
+      "displayType": "card-list",
+      "highlights": [
+        {
+          "label": "Main Story",
+          "detail": "32 main missions follow Sam, Kale, and Axel as they attempt their Rock the School plan."
+        },
+        {
+          "label": "Side Content",
+          "detail": "15 side missions and activities provide optional objectives and ways to earn cash."
+        },
+        {
+          "label": "Playtime",
+          "detail": "The developer estimates 8–10 hours for the coming-of-age story."
+        },
+        {
+          "label": "Completion",
+          "detail": "Completing every mini mission and activity unlocks the Hard worker Steam achievement."
+        }
+      ],
+      "references": [
+        "https://www.refugiumgames.net/",
+        "https://store.steampowered.com/app/3562580/Agefield_High_Rock_the_School/",
+        "https://steamcommunity.com/stats/3562580/achievements"
+      ]
+    },
+    {
+      "order": 3,
+      "name": "Agefield High Rock the School Class Guide",
+      "description": "Understand every confirmed lesson type and how attendance fits into the daily schedule. Agefield High has five classes, and good grades are an official source of pocket money.",
+      "href": "/classes",
+      "displayType": "card-list",
+      "highlights": [
+        {
+          "label": "English",
+          "detail": "One of the five officially confirmed lesson types in Agefield High's school system."
+        },
+        {
+          "label": "Math",
+          "detail": "One of the five officially confirmed lesson types in Agefield High's school system."
+        },
+        {
+          "label": "Geography",
+          "detail": "One of the five officially confirmed lesson types in Agefield High's school system."
+        },
+        {
+          "label": "German",
+          "detail": "One of the five officially confirmed lesson types in Agefield High's school system."
+        },
+        {
+          "label": "Music",
+          "detail": "One of the five officially confirmed lesson types in Agefield High's school system."
+        }
+      ],
+      "references": [
+        "https://www.refugiumgames.net/",
+        "https://store.steampowered.com/app/3562580/Agefield_High_Rock_the_School/",
+        "https://www.youtube.com/watch?v=ClY-3UopEeU"
+      ]
+    },
+    {
+      "order": 4,
+      "name": "Agefield High Rock the School Collectibles Guide",
+      "description": "Track the collectible sets tied directly to Steam achievements. The official achievement list confirms five completion categories, making this a useful checklist for players pursuing 100% completion.",
+      "href": "/collectibles",
+      "displayType": "card-list",
+      "highlights": [
+        {
+          "label": "Mayor Wellbe Autographs",
+          "detail": "Collect every Mayor Wellbe autograph to unlock Hardcore Supporter."
+        },
+        {
+          "label": "Playwith Magazines",
+          "detail": "Collect every Playwith Magazine to unlock Naughty boy."
+        },
+        {
+          "label": "Band Magazines",
+          "detail": "Collect every Band Magazine to unlock Band geek."
+        },
+        {
+          "label": "Golden Panties",
+          "detail": "Collect every golden pair to unlock the achievement named ;-)."
+        },
+        {
+          "label": "Burned CDs",
+          "detail": "Collect every burned CD to unlock Pirate."
+        },
+        {
+          "label": "Apple Pies",
+          "detail": "Collect every apple pie to unlock Don't try it."
+        }
+      ],
+      "references": [
+        "https://steamcommunity.com/stats/3562580/achievements",
+        "https://store.steampowered.com/app/3562580/Agefield_High_Rock_the_School/"
+      ]
+    },
+    {
+      "order": 5,
+      "name": "Agefield High Rock the School Endings Guide",
+      "description": "See how the prom choice connects to the game's two confirmed endings. This spoiler-aware section separates Chloe's and Ashley's outcomes and links each route to its official Steam achievement.",
+      "href": "/endings",
+      "displayType": "card-list",
+      "highlights": [
+        {
+          "label": "Chloe Ending",
+          "detail": "Finish the prom mission with Chloe to unlock Chloe's little guitar hero."
+        },
+        {
+          "label": "Ashley Ending",
+          "detail": "Finish the prom mission with Ashley to unlock Ashley's sweet boy Sam."
+        },
+        {
+          "label": "Two Endings",
+          "detail": "The developer officially confirms that the 32-mission main story has two different endings."
+        }
+      ],
+      "references": [
+        "https://steamcommunity.com/stats/3562580/achievements",
+        "https://www.refugiumgames.net/",
+        "https://store.steampowered.com/app/3562580/Agefield_High_Rock_the_School/"
+      ]
+    },
+    {
+      "order": 6,
+      "name": "Agefield High Rock the School Achievements Guide",
+      "description": "Work through all 11 Steam achievements using official names and unlock conditions. The list covers savings, bicycles, both prom outcomes, all side activities, and every collectible set.",
+      "href": "/achievements",
+      "displayType": "card-list",
+      "highlights": [
+        {
+          "label": "Thrifty child",
+          "detail": "Save $1000."
+        },
+        {
+          "label": "Bike enthusiast",
+          "detail": "Unlock all bicycles."
+        },
+        {
+          "label": "Hard worker",
+          "detail": "Complete all mini missions and activities."
+        },
+        {
+          "label": "Prom Achievements",
+          "detail": "Two separate achievements track finishing the prom mission with Chloe and with Ashley."
+        },
+        {
+          "label": "Collectible Achievements",
+          "detail": "Six achievements cover all autographs, Playwith Magazines, Band Magazines, golden panties, apple pies, and burned CDs."
+        }
+      ],
+      "references": [
+        "https://steamcommunity.com/stats/3562580/achievements",
+        "https://store.steampowered.com/app/3562580/Agefield_High_Rock_the_School/"
+      ]
+    },
+    {
+      "order": 7,
+      "name": "Agefield High Rock the School Money and Bikes Guide",
+      "description": "Learn the two confirmed ways to earn cash and what Sam can buy around town. This section also supports the $1000 savings achievement and the all-bicycles completion goal without claiming an unverified economy exploit.",
+      "href": "/money-and-bikes",
+      "displayType": "step-by-step",
+      "highlights": [
+        {
+          "label": "1",
+          "detail": "Attend lessons and earn good grades to receive pocket money."
+        },
+        {
+          "label": "2",
+          "detail": "Skip class and complete side missions when pursuing the alternative cash source described by the developer."
+        },
+        {
+          "label": "3",
+          "detail": "Save $1000 to unlock the Thrifty child achievement before spending the full balance."
+        },
+        {
+          "label": "4",
+          "detail": "Buy bicycles, clothes, hairstyles, tattoos, and accessories from shops around Agefield."
+        },
+        {
+          "label": "5",
+          "detail": "Unlock every bicycle to earn the Bike enthusiast achievement."
+        }
+      ],
+      "references": [
+        "https://store.steampowered.com/app/3562580/Agefield_High_Rock_the_School/",
+        "https://steamcommunity.com/stats/3562580/achievements",
+        "https://www.refugiumgames.net/"
+      ]
+    },
+    {
+      "order": 8,
+      "name": "Agefield High Rock the School System Requirements",
+      "description": "Check the current official PC specifications before installing the game. The Steam listing requires Windows 10 or 11, DirectX 12, an SSD, and 15 GB of available storage, with separate minimum and recommended hardware tiers.",
+      "href": "/system-requirements",
+      "displayType": "card-list",
+      "highlights": [
+        {
+          "label": "Operating System",
+          "detail": "Windows 10 or 11 with a 64-bit processor and operating system."
+        },
+        {
+          "label": "Minimum CPU",
+          "detail": "AMD Ryzen 5 2600X or Intel Core i7-7700K."
+        },
+        {
+          "label": "Minimum GPU",
+          "detail": "NVIDIA GTX 1070 8GB or AMD Radeon RX 580 8GB."
+        },
+        {
+          "label": "Minimum Memory",
+          "detail": "16 GB RAM."
+        },
+        {
+          "label": "Recommended Hardware",
+          "detail": "AMD Ryzen 5 7600X or Intel Core i7-12700K, 32 GB RAM, and NVIDIA RTX 3080 or AMD Radeon RX 6950 XT."
+        },
+        {
+          "label": "Storage",
+          "detail": "15 GB available space with an SSD required."
+        }
+      ],
+      "references": [
+        "https://store.steampowered.com/app/3562580/Agefield_High_Rock_the_School/"
+      ]
+    }
+  ]
+}

@@ -1,0 +1,491 @@
+{
+    "site":  {
+                 "name":  "Agefield High: Rock the School Wiki",
+                 "shortName":  "Wiki de Agefield High",
+                 "tagline":  "Wiki Comunitária Feita por Fãs",
+                 "description":  "Wiki feita por fãs de Agefield High: Rock the School com detonados de missões, ajuda nas aulas, escolhas, finais, conquistas e dicas práticas de jogo.",
+                 "legalNotice":  "Wiki independente feita por fãs. Não afiliada a Refugium Games, Perp Games, Steam ou Valve."
+             },
+    "nav":  {
+                "missions":  "Missões",
+                "characters":  "Personagens",
+                "endings":  "Finais",
+                "guide":  "Guia",
+                "release":  "Lançamento",
+                "platforms":  "Plataformas",
+                "purchase":  "Compra",
+                "reviews":  "Análises",
+                "media":  "Mídia",
+                "details":  "Detalhes",
+                "community":  "Comunidade"
+            },
+    "guide":  {
+                  "overviewTitle":  "Guia",
+                  "overviewDescription":  "Detonados para as missões de Agefield High: Rock the School, finais, lutas contra chefes e objetivos importantes da história."
+              },
+    "release":  {
+                    "overviewTitle":  "Lançamento",
+                    "overviewDescription":  "Datas de lançamento, detalhes de acesso antecipado e informações sobre o lançamento nos consoles para Agefield High: Rock the School."
+                },
+    "platforms":  {
+                      "overviewTitle":  "Plataformas",
+                      "overviewDescription":  "Disponibilidade de plataforma para Agefield High: Rock the School em PC, PlayStation, Xbox, Nintendo Switch, Android e Game Pass."
+                  },
+    "purchase":  {
+                     "overviewTitle":  "Compra",
+                     "overviewDescription":  "Disponibilidade na Steam, preços, opções de compra e informações de pré-venda para Agefield High: Rock the School."
+                 },
+    "reviews":  {
+                    "overviewTitle":  "Análises",
+                    "overviewDescription":  "Análises, recepção crítica, comparações e análises focadas no jogador de Agefield High: Rock the School."
+                },
+    "media":  {
+                  "overviewTitle":  "Mídia",
+                  "overviewDescription":  "Imagens de jogabilidade, trailers e cobertura completa de detonados para Agefield High: Rock the School."
+              },
+    "details":  {
+                    "overviewTitle":  "Detalhes",
+                    "overviewDescription":  "Requisitos de sistema, tamanho da instalação, duração da história, mapa, personagens, romance, multijogador e detalhes de classificação indicativa."
+                },
+    "community":  {
+                      "overviewTitle":  "Comunidade",
+                      "overviewDescription":  "Canais oficiais e da comunidade para Agefield High: Rock the School, incluindo disponibilidade no Reddit e Discord."
+                  },
+    "home":  {
+                 "meta":  {
+                              "title":  "Wiki de Agefield High: Rock the School — Guias e Detonados",
+                              "description":  "Explore guias de Agefield High: Rock the School, detonados de missões, respostas das aulas, colecionáveis, escolhas, finais, conquistas e dicas práticas de jogo."
+                          },
+                 "hero":  {
+                              "eyebrow":  "Wiki Comunitária Feita por Fãs",
+                              "title":  "Wiki de Agefield High: Rock the School",
+                              "description":  "Entre no último ano de Sam em um pequeno mundo aberto inspirado nas comédias adolescentes rebeldes do início dos anos 2000. Assista às aulas ou mate aula, explore Agefield, complete missões, ganhe dinheiro, melhore seu estilo e escolha como a lenda da sua escola termina.",
+                              "stats":  [
+                                            "Lançado em 12 de ago. de 2026",
+                                            "32 Missões Principais",
+                                            "15 Atividades Secundárias",
+                                            "História de 8 a 10 horas",
+                                            "2 Finais"
+                                        ],
+                              "primaryCta":  "Iniciar o Detonado",
+                              "secondaryCta":  "Explorar Ambos os Finais",
+                              "tertiaryCta":  "Ler o Guia de Chefes",
+                              "videoLabel":  "Visão Geral Oficial da Jogabilidade"
+                          },
+                 "updates":  {
+                                 "title":  "Últimas Atualizações",
+                                 "browse":  "Navegar por Todos os Guias",
+                                 "viewAll":  "Ver Tudo"
+                             },
+                 "start":  {
+                               "eyebrow":  "Comece Aqui",
+                               "title":  "Sua Jornada em Agefield High",
+                               "imageCaption":  "Primeiro sinal, primeiras escolhas: a jornada de Sam começa em Agefield High.",
+                               "cards":  [
+                                             {
+                                                 "number":  "1",
+                                                 "title":  "Guia para Iniciantes",
+                                                 "description":  "Aprenda o cronograma escolar, mapa, controles, sistema de dinheiro, prioridades iniciais e os erros a evitar durante os primeiros dias de Sam em Agefield."
+                                             },
+                                             {
+                                                 "number":  "2",
+                                                 "title":  "Detonados de Missões",
+                                                 "description":  "Siga objetivos claros e dicas práticas para todas as 32 missões principais e 15 atividades secundárias, incluindo pontos difíceis e momentos que podem ser perdidos."
+                                             },
+                                             {
+                                                 "number":  "3",
+                                                 "title":  "Aulas e Respostas",
+                                                 "description":  "Domine as aulas de Inglês, Matemática, Geografia, Alemão e Música enquanto equilibra frequência, notas, tempo livre e as consequências de matar aula."
+                                             },
+                                             {
+                                                 "number":  "4",
+                                                 "title":  "Escolhas, Finais e Conquistas",
+                                                 "description":  "Acompanhe escolhas importantes, desbloqueie ambos os finais e complete todas as 11 conquistas da Steam com orientações que evitam spoilers."
+                                             }
+                                         ]
+                           },
+                 "popular":  {
+                                 "eyebrow":  "Páginas Populares",
+                                 "title":  "Em Alta Agora",
+                                 "quickLinks":  [
+                                                    "Detonado de Missões",
+                                                    "Guia para Iniciantes",
+                                                    "Respostas das Aulas",
+                                                    "Guia de Finais"
+                                                ],
+                                 "cards":  [
+
+                                           ]
+                             },
+                 "aboutGame":  {
+                                   "title":  "O que é Agefield High: Rock the School?",
+                                   "paragraphs":  [
+                                                      "Agefield High: Rock the School é um jogo de ação e aventura em mundo aberto para um jogador da Refugium Games. Ambientado no início dos anos 2000, ele acompanha o novo aluno Sam enquanto ele se junta a Kale e Axel em um plano para se rebelar, encontrar o amor e deixar a escola como uma lenda.",
+                                                      "Seu mundo compacto abrange o campus da escola, dois bairros, o centro da cidade e a zona rural. Os jogadores podem assistir ou matar aula, completar missões da história e secundárias, ganhar dinheiro, lutar contra rivais, andar de bicicleta, personalizar Sam e conduzir a história para um dos dois finais."
+                                                  ],
+                                   "stats":  [
+                                                 {
+                                                     "label":  "Desenvolvedora",
+                                                     "value":  "Refugium Games"
+                                                 },
+                                                 {
+                                                     "label":  "Plataforma",
+                                                     "value":  "Windows PC via Steam"
+                                                 },
+                                                 {
+                                                     "label":  "Gênero",
+                                                     "value":  "Ação e Aventura em Mundo Aberto"
+                                                 },
+                                                 {
+                                                     "label":  "Data de Lançamento",
+                                                     "value":  "12 de agosto de 2026"
+                                                 },
+                                                 {
+                                                     "label":  "Duração da História",
+                                                     "value":  "8–10 Horas"
+                                                 },
+                                                 {
+                                                     "label":  "Missões Principais",
+                                                     "value":  "32"
+                                                 },
+                                                 {
+                                                     "label":  "Atividades Secundárias",
+                                                     "value":  "15"
+                                                 },
+                                                 {
+                                                     "label":  "Finais",
+                                                     "value":  "2"
+                                                 },
+                                                 {
+                                                     "label":  "Tipos de Aula",
+                                                     "value":  "5"
+                                                 },
+                                                 {
+                                                     "label":  "Conquistas Steam",
+                                                     "value":  "11"
+                                                 }
+                                             ],
+                                   "cta":  "Explorar Todos os Guias"
+                               },
+                 "explore":  {
+                                 "readFullGuide":  "Ler o guia completo",
+                                 "title":  "Guias de Agefield High: Rock the School",
+                                 "description":  "Explore as informações que os jogadores mais precisam, desde começar a escola e completar missões até aulas, colecionáveis, finais, conquistas, dinheiro, bicicletas e requisitos de PC.",
+                                 "modules":  [
+                                                 {
+                                                     "order":  1,
+                                                     "name":  "Guia para Iniciantes de Agefield High: Rock the School",
+                                                     "description":  "Comece o último ano de Sam com os sistemas principais explicados em uma ordem prática. Aprenda como a frequência escolar, exploração livre, dinheiro, missões, lojas e personalização se encaixam.",
+                                                     "href":  "",
+                                                     "displayType":  "step-by-step",
+                                                     "highlights":  [
+                                                                        {
+                                                                            "label":  "1",
+                                                                            "detail":  "Aprenda o cronograma semanal; assistir às aulas mantém Sam nas lições até a tarde."
+                                                                        },
+                                                                        {
+                                                                            "label":  "2",
+                                                                            "detail":  "Equilibre a frequência com matar aula, já que boas notas e missões secundárias oferecem maneiras de ganhar dinheiro."
+                                                                        },
+                                                                        {
+                                                                            "label":  "3",
+                                                                            "detail":  "Explore o campus, dois bairros, o centro da cidade e a zona rural fora das lições e missões principais."
+                                                                        },
+                                                                        {
+                                                                            "label":  "4",
+                                                                            "detail":  "Gaste seus ganhos em lojas com bicicletas, roupas, penteados, tatuagens e acessórios."
+                                                                        }
+                                                                    ]
+                                                 },
+                                                 {
+                                                     "order":  2,
+                                                     "name":  "Detonado de Missões de Agefield High: Rock the School",
+                                                     "description":  "Siga a estrutura completa da história e a lista de verificação de atividades opcionais para os meses finais de Sam em Agefield High. O jogo contém 32 missões principais e 15 missões ou atividades secundárias ao longo de uma história estimada de 8 a 10 horas.",
+                                                     "href":  "",
+                                                     "displayType":  "card-list",
+                                                     "highlights":  [
+                                                                        {
+                                                                            "label":  "História Principal",
+                                                                            "detail":  "32 missões principais acompanham Sam, Kale e Axel enquanto eles tentam seu plano Rock the School."
+                                                                        },
+                                                                        {
+                                                                            "label":  "Conteúdo Secundário",
+                                                                            "detail":  "15 missões e atividades secundárias oferecem objetivos opcionais e maneiras de ganhar dinheiro."
+                                                                        },
+                                                                        {
+                                                                            "label":  "Tempo de Jogo",
+                                                                            "detail":  "A desenvolvedora estima de 8 a 10 horas para a história de amadurecimento."
+                                                                        },
+                                                                        {
+                                                                            "label":  "Conclusão",
+                                                                            "detail":  "Completar cada mini missão e atividade desbloqueia a conquista Hard worker da Steam."
+                                                                        }
+                                                                    ]
+                                                 },
+                                                 {
+                                                     "order":  3,
+                                                     "name":  "Guia de Aulas de Agefield High: Rock the School",
+                                                     "description":  "Entenda cada tipo de lição confirmado e como a frequência se encaixa no cronograma diário. Agefield High tem cinco aulas, e boas notas são uma fonte oficial de dinheiro.",
+                                                     "href":  "",
+                                                     "displayType":  "card-list",
+                                                     "highlights":  [
+                                                                        {
+                                                                            "label":  "Inglês",
+                                                                            "detail":  "Um dos cinco tipos de lição confirmados no sistema escolar de Agefield High."
+                                                                        },
+                                                                        {
+                                                                            "label":  "Matemática",
+                                                                            "detail":  "Um dos cinco tipos de lição confirmados no sistema escolar de Agefield High."
+                                                                        },
+                                                                        {
+                                                                            "label":  "Geografia",
+                                                                            "detail":  "Um dos cinco tipos de lição confirmados no sistema escolar de Agefield High."
+                                                                        },
+                                                                        {
+                                                                            "label":  "Alemão",
+                                                                            "detail":  "Um dos cinco tipos de lição confirmados no sistema escolar de Agefield High."
+                                                                        },
+                                                                        {
+                                                                            "label":  "Música",
+                                                                            "detail":  "Um dos cinco tipos de lição confirmados no sistema escolar de Agefield High."
+                                                                        }
+                                                                    ]
+                                                 },
+                                                 {
+                                                     "order":  4,
+                                                     "name":  "Guia de Colecionáveis de Agefield High: Rock the School",
+                                                     "description":  "Acompanhe os conjuntos de colecionáveis vinculados diretamente às conquistas da Steam. A lista oficial de conquistas confirma seis categorias de coleção para jogadores que buscam a conclusão total.",
+                                                     "href":  "",
+                                                     "displayType":  "card-list",
+                                                     "highlights":  [
+                                                                        {
+                                                                            "label":  "Autógrafos",
+                                                                            "detail":  "Colete todos os autógrafos do Prefeito Wellbe para desbloquear Hardcore Supporter."
+                                                                        },
+                                                                        {
+                                                                            "label":  "Playwith",
+                                                                            "detail":  "Colete todas as revistas Playwith para desbloquear Naughty boy."
+                                                                        },
+                                                                        {
+                                                                            "label":  "Banda",
+                                                                            "detail":  "Colete todas as revistas de Banda para desbloquear Band geek."
+                                                                        },
+                                                                        {
+                                                                            "label":  "Pares Dourados",
+                                                                            "detail":  "Colete todos os pares dourados para desbloquear a conquista relacionada de nome oculto."
+                                                                        },
+                                                                        {
+                                                                            "label":  "CDs Gravados",
+                                                                            "detail":  "Colete todos os CDs gravados para desbloquear Pirate."
+                                                                        },
+                                                                        {
+                                                                            "label":  "Tortas de Maçã",
+                                                                            "detail":  "Colete todas as tortas de maçã para desbloquear Don\u0027t try it."
+                                                                        }
+                                                                    ]
+                                                 },
+                                                 {
+                                                     "order":  5,
+                                                     "name":  "Guia de Finais de Agefield High: Rock the School",
+                                                     "description":  "Veja como a escolha do baile se conecta aos dois finais confirmados do jogo. Esta visão geral com spoilers separa os resultados de Chloe e Ashley e identifica a conquista da Steam para cada rota.",
+                                                     "href":  "",
+                                                     "displayType":  "card-list",
+                                                     "highlights":  [
+                                                                        {
+                                                                            "label":  "Chloe",
+                                                                            "detail":  "Termine a missão do baile com Chloe para desbloquear Chloe\u0027s little guitar hero."
+                                                                        },
+                                                                        {
+                                                                            "label":  "Ashley",
+                                                                            "detail":  "Termine a missão do baile com Ashley para desbloquear Ashley\u0027s sweet boy Sam."
+                                                                        },
+                                                                        {
+                                                                            "label":  "Dois Finais",
+                                                                            "detail":  "A desenvolvedora confirma que a história principal de 32 missões tem dois finais diferentes."
+                                                                        }
+                                                                    ]
+                                                 },
+                                                 {
+                                                     "order":  6,
+                                                     "name":  "Guia de Conquistas de Agefield High: Rock the School",
+                                                     "description":  "Trabalhe em todas as 11 conquistas da Steam usando suas condições oficiais de desbloqueio. A lista cobre economias, bicicletas, ambos os resultados do baile, todas as atividades secundárias e cada conjunto de colecionáveis.",
+                                                     "href":  "",
+                                                     "displayType":  "card-list",
+                                                     "highlights":  [
+                                                                        {
+                                                                            "label":  "Thrifty Child",
+                                                                            "detail":  "Economize $1000."
+                                                                        },
+                                                                        {
+                                                                            "label":  "Bike Enthusiast",
+                                                                            "detail":  "Desbloqueie todas as bicicletas."
+                                                                        },
+                                                                        {
+                                                                            "label":  "Hard Worker",
+                                                                            "detail":  "Complete todas as mini missões e atividades."
+                                                                        },
+                                                                        {
+                                                                            "label":  "Baile",
+                                                                            "detail":  "Duas conquistas rastreiam o término da missão do baile com Chloe e com Ashley."
+                                                                        },
+                                                                        {
+                                                                            "label":  "Colecionáveis",
+                                                                            "detail":  "Seis conquistas cobrem todos os autógrafos, revistas, pares dourados, tortas de maçã e CDs gravados."
+                                                                        }
+                                                                    ]
+                                                 },
+                                                 {
+                                                     "order":  7,
+                                                     "name":  "Guia de Dinheiro e Bicicletas de Agefield High: Rock the School",
+                                                     "description":  "Aprenda as duas maneiras confirmadas de ganhar dinheiro e o que Sam pode comprar pela cidade. A mesma progressão suporta a conquista de economia de $1000 e o objetivo de desbloquear todas as bicicletas.",
+                                                     "href":  "",
+                                                     "displayType":  "step-by-step",
+                                                     "highlights":  [
+                                                                        {
+                                                                            "label":  "1",
+                                                                            "detail":  "Assista às lições e tire boas notas para receber dinheiro."
+                                                                        },
+                                                                        {
+                                                                            "label":  "2",
+                                                                            "detail":  "Complete missões secundárias para a fonte alternativa de dinheiro descrita pela desenvolvedora."
+                                                                        },
+                                                                        {
+                                                                            "label":  "3",
+                                                                            "detail":  "Economize $1000 para desbloquear a conquista Thrifty child antes de gastar o saldo total."
+                                                                        },
+                                                                        {
+                                                                            "label":  "4",
+                                                                            "detail":  "Compre bicicletas, roupas, penteados, tatuagens e acessórios em lojas por Agefield."
+                                                                        },
+                                                                        {
+                                                                            "label":  "5",
+                                                                            "detail":  "Desbloqueie todas as bicicletas para ganhar a conquista Bike enthusiast."
+                                                                        }
+                                                                    ]
+                                                 },
+                                                 {
+                                                     "order":  8,
+                                                     "name":  "Requisitos de Sistema de Agefield High: Rock the School",
+                                                     "description":  "Verifique as especificações oficiais para PC antes de instalar o jogo. A listagem da Steam requer Windows 10 ou 11, DirectX 12, um SSD e 15 GB de armazenamento disponível, com níveis de hardware mínimos e recomendados separados.",
+                                                     "href":  "",
+                                                     "displayType":  "card-list",
+                                                     "highlights":  [
+                                                                        {
+                                                                            "label":  "Sistema Operacional",
+                                                                            "detail":  "Windows 10 ou 11 com processador e sistema operacional de 64 bits."
+                                                                        },
+                                                                        {
+                                                                            "label":  "CPU Mínima",
+                                                                            "detail":  "AMD Ryzen 5 2600X ou Intel Core i7-7700K."
+                                                                        },
+                                                                        {
+                                                                            "label":  "GPU Mínima",
+                                                                            "detail":  "NVIDIA GTX 1070 8GB ou AMD Radeon RX 580 8GB."
+                                                                        },
+                                                                        {
+                                                                            "label":  "Memória Mínima",
+                                                                            "detail":  "16 GB RAM."
+                                                                        },
+                                                                        {
+                                                                            "label":  "Recomendado",
+                                                                            "detail":  "Ryzen 5 7600X ou Core i7-12700K, 32 GB RAM e RTX 3080 ou Radeon RX 6950 XT."
+                                                                        },
+                                                                        {
+                                                                            "label":  "Armazenamento",
+                                                                            "detail":  "15 GB de espaço disponível com um SSD necessário."
+                                                                        }
+                                                                    ]
+                                                 }
+                                             ]
+                             },
+                 "browseTopics":  {
+                                      "title":  "Explorar todos os tópicos",
+                                      "description":  "Abra todas as categorias, incluindo lançamento, compra, avaliações, mídia oficial, detalhes do jogo e recursos da comunidade."
+                                  },
+                 "faq":  {
+                             "title":  "Perguntas Frequentes",
+                             "description":  "Respostas rápidas para as perguntas mais comuns sobre Agefield High: Rock the School.",
+                             "items":  [
+                                           {
+                                               "question":  "O que é Agefield High: Rock the School?",
+                                               "answer":  "Agefield High: Rock the School é um jogo de ação e aventura em mundo aberto para um jogador da Refugium Games. Ele acompanha Sam durante seus meses finais na escola em um cenário do início dos anos 2000 repleto de aulas, missões, exploração, lutas, amizades e escolhas."
+                                           },
+                                           {
+                                               "question":  "Quando Agefield High: Rock the School foi lançado?",
+                                               "answer":  "Agefield High: Rock the School foi lançado para Windows PC via Steam em 12 de agosto de 2026."
+                                           },
+                                           {
+                                               "question":  "O que você pode fazer em Agefield High: Rock the School?",
+                                               "answer":  "Em Agefield High: Rock the School, você pode assistir ou matar aula, completar missões principais e secundárias, explorar quatro áreas conectadas, ganhar dinheiro, lutar contra rivais, andar de bicicleta, comprar itens de personalização e moldar o final de Sam."
+                                           },
+                                           {
+                                               "question":  "Quais aulas estão em Agefield High: Rock the School?",
+                                               "answer":  "Agefield High: Rock the School inclui aulas de Inglês, Matemática, Geografia, Alemão e Música. Assistir às lições e tirar boas notas fornece dinheiro, enquanto matar aula deixa mais tempo para exploração e missões secundárias."
+                                           },
+                                           {
+                                               "question":  "Quanto tempo dura Agefield High: Rock the School?",
+                                               "answer":  "Agefield High: Rock the School tem 32 missões principais, 15 missões ou atividades secundárias e uma duração de história estimada de 8 a 10 horas."
+                                           },
+                                           {
+                                               "question":  "Quantos finais e conquistas existem em Agefield High: Rock the School?",
+                                               "answer":  "Agefield High: Rock the School tem dois finais e 11 conquistas da Steam. As conquistas cobrem ambos os resultados do baile, economias, bicicletas, atividades secundárias e seis conjuntos de colecionáveis."
+                                           },
+                                           {
+                                               "question":  "A Wiki de Agefield High: Rock the School é oficial?",
+                                               "answer":  "Não. A Wiki de Agefield High: Rock the School é um site de guia independente feito por fãs e não é afiliado à Refugium Games, Perp Games, Steam ou Valve."
+                                           }
+                                       ]
+                         },
+                 "finalCta":  {
+                                  "title":  "Pronto para agitar Agefield High?",
+                                  "description":  "Desde o primeiro dia de Sam até a escolha final, use nossos guias feitos por fãs para lidar com as aulas, terminar missões, explorar Agefield e descobrir ambos os finais.",
+                                  "primary":  "Ler o Detonado",
+                                  "secondary":  "Jogar na Steam"
+                              }
+             },
+    "shared":  {
+                   "wikiNavigation":  "Navegação da Wiki",
+                   "activeCodes":  "Dicas de Jogo",
+                   "tipStartTitle":  "Comece pelo passo a passo",
+                   "tipStartDescription":  "Aprenda os horários, controles, sistema de dinheiro e prioridades iniciais antes de explorar livremente.",
+                   "tipChoicesTitle":  "Salve antes de escolhas importantes",
+                   "tipChoicesDescription":  "Decisões importantes nas missões afetam os relacionamentos de Sam e o final desbloqueado.",
+                   "updated":  "Atualizado",
+                   "viewAllCodes":  "Ver todos os guias",
+                   "playOnRoblox":  "Jogar na Steam",
+                   "inThisSection":  "Nesta seção",
+                   "tableOfContents":  "Índice",
+                   "sections":  "seções",
+                   "nextSteps":  "Próximos Passos",
+                   "needHelp":  "Precisa de Ajuda?",
+                   "relatedReading":  "Leitura Relacionada",
+                   "relatedGuides":  "Guias Relacionados",
+                   "moreInSection":  "Mais em",
+                   "readMore":  "Leia mais",
+                   "officialMedia":  "Mídia oficial",
+                   "home":  "Início",
+                   "menu":  "Menu",
+                   "toggleTheme":  "Alternar tema",
+                   "noGuidesAvailable":  "Nenhum guia disponível ainda. Volte em breve!"
+               },
+    "footer":  {
+                   "aboutTitle":  "Wiki de Agefield High: Rock the School",
+                   "about":  "A Wiki de Agefield High: Rock the School é um centro de guias independente feito por fãs para o último ano rebelde de Sam. Cobrimos missões, aulas, escolhas, finais, conquistas, plataformas e ajuda prática de jogo. Não somos afiliados à Refugium Games, Perp Games, Steam ou Valve.",
+                   "quickLinks":  "Links Rápidos",
+                   "guides":  "Guias",
+                   "legal":  "Legal",
+                   "copyright":  "© 2026 Wiki de Agefield High: Rock the School. Site independente feito por fãs; os direitos do jogo pertencem aos seus respectivos proprietários.",
+                   "description":  "Uma aventura escolar em mundo aberto do início dos anos 2000 com 32 missões principais, 15 atividades secundárias, cinco tipos de aula e dois finais.",
+                   "playGame":  "Jogar Agefield High na Steam",
+                   "officialDiscord":  "Discord Não Disponível",
+                   "officialYoutube":  "YouTube Oficial da Refugium Games",
+                   "communityGroup":  "Hub da Comunidade Steam",
+                   "vvBuilder":  "Site Oficial da Refugium Games",
+                   "beginnerGuide":  "Detonado",
+                   "petsGuide":  "Guias de Missões",
+                   "rankedGuides":  "Guia de Finais",
+                   "winStreakGuides":  "Guia de Luta contra Chefes",
+                   "privacyPolicy":  "Política de Privacidade",
+                   "termsOfService":  "Termos de Serviço"
+               }
+}

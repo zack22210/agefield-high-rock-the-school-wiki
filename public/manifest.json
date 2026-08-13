@@ -1,15 +1,45 @@
 {
-  "name": "",
-  "short_name": "",
-  "description": "",
+  "id": "/",
+  "name": "Agefield High: Rock the School Wiki",
+  "short_name": "Agefield High Wiki",
+  "description": "Fan-made Agefield High: Rock the School walkthroughs, mission guides, class help, endings, achievements, and gameplay tips.",
   "start_url": "/",
   "scope": "/",
   "display": "standalone",
+  "display_override": ["window-controls-overlay", "standalone"],
   "orientation": "portrait-primary",
   "lang": "en",
   "dir": "ltr",
-  "background_color": "#fafafa",
-  "theme_color": "#7c3aed",
+  "background_color": "#07111f",
+  "theme_color": "#07111f",
   "categories": ["games", "entertainment"],
-  "icons": []
+  "icons": [
+    {
+      "src": "/android-chrome-192x192.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "any"
+    },
+    {
+      "src": "/android-chrome-512x512.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any"
+    },
+    {
+      "src": "/android-chrome-512x512.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "maskable"
+    }
+  ],
+  "screenshots": [
+    {
+      "src": "/images/hero.webp",
+      "sizes": "2500x1168",
+      "type": "image/webp",
+      "form_factor": "wide",
+      "label": "Agefield High: Rock the School"
+    }
+  ]
 }

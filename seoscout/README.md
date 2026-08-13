@@ -19,7 +19,7 @@ When you create a **new GitHub repo** for another game wiki from this template:
 | Key | Required | Get it |
 |-----|:--------:|--------|
 | `SERPER_API_KEY` | yes | [serper.dev](https://serper.dev/) |
-| `JINA_API_KEY` | recommended | [jina.ai](https://jina.ai/) |
+| Web extraction key | not needed | Local [Trafilatura](https://github.com/adbar/trafilatura) extraction |
 | `LLM_API_KEY` | for generate/translate | any OpenAI-compatible API |
 
 ## Manual / local setup
@@ -39,9 +39,9 @@ All seoscout commands run with cwd `seoscout/` so `.env` and `OUTPUT_DIR=./outpu
 
 ```bash
 bun run seoscout:search      # YouTube + Google
-bun run seoscout:collect     # transcripts + Jina pages
+bun run seoscout:collect     # transcripts + locally extracted web pages
 bun run seoscout:generate    # English MDX → output/<project>/articles/en/ (uses prompts/generate.md)
-bun run seoscout:translate   # es, pt, id (from keywords.json)
+bun run seoscout:translate   # ru, es, br (from keywords.json)
 bun run seoscout:run         # search + collect + generate (+ translate if languages set)
 bun run seoscout:sync        # copy articles → content/
 ```

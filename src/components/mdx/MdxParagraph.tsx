@@ -11,7 +11,7 @@ export function MdxParagraph({ children }: ComponentProps<"p">) {
 
   return (
     <>
-      <p className="my-5 leading-8 text-muted-foreground">{children}</p>
+      <p className="text-body my-5 leading-8">{children}</p>
       {showInArticleAd ? <InArticleMobileAd /> : null}
     </>
   );

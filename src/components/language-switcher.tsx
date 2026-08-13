@@ -13,9 +13,9 @@ import {
 
 const LOCALE_LABELS: Record<string, string> = {
   en: "English",
-  pt: "Português",
+  ru: "Русский",
   es: "Español",
-  id: "Bahasa Indonesia",
+  br: "Português (Brasil)",
 };
 
 /**

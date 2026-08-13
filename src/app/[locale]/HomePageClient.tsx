@@ -1,6 +1,7 @@
 "use client";
 
 import Link from "next/link";
+import Image from "next/image";
 import { ArrowRight, BookOpen, Boxes, ChevronRight, CircleHelp, Code2, Compass, Flame, Map as MapIcon, ScrollText, Shield, Skull, Swords, Trophy, Users, Zap, type LucideIcon } from "lucide-react";
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion";
 import { Badge } from "@/components/ui/badge";
@@ -10,18 +11,41 @@ import { HomeBottomAd } from "@/components/ads/home-bottom-ad";
 import { NativeBannerAd } from "@/components/ads/native-banner-ad";
 import { StickyAdBanner } from "@/components/ads/sticky-ad-banner";
 import { TrailerEmbed, localizeHref } from "@/components/site";
+import { NAVIGATION_CONFIG } from "@/config/navigation";
 import type { ContentItem } from "@/lib/content";
 import en from "@/locales/en.json";
 
 type Home = typeof en.home;
+type Nav = typeof en.nav;
 
 const icons: LucideIcon[] = [BookOpen, Shield, Compass, Boxes, Flame, Code2, Swords, MapIcon, Users, Trophy, Skull, Zap, CircleHelp, ScrollText];
 
 
-const ROBLOX_PLAY_URL = "https://www.roblox.com/games/91704854174760/Finish-The-Word";
-const YOUTUBE_VIDEO_ID = "bUtCQJ61TtA";
+const STEAM_PLAY_URL = "https://store.steampowered.com/app/3562580/Agefield_High_Rock_the_School/";
+const YOUTUBE_VIDEO_ID = "ClY-3UopEeU";
 
-export default function HomePageClient({ home, locale, articles, recentArticles }: { home: Home; locale: string; articles: ContentItem[]; recentArticles: ContentItem[] }) {
+const EXPLORE_DESTINATIONS: Record<number, string> = {
+  1: "/guide/agefield-high-rock-the-school-walkthrough",
+  2: "/guide/agefield-high-rock-the-school-haunted-house-mission",
+  3: "/guide/agefield-high-rock-the-school-walkthrough",
+  4: "/guide/agefield-high-rock-the-school-walkthrough",
+  5: "/guide/agefield-high-rock-the-school-true-ending",
+  6: "/guide/agefield-high-rock-the-school-walkthrough",
+  7: "/purchase/agefield-high-rock-the-school-buy",
+  8: "/details/agefield-high-rock-the-school-system-requirements",
+};
+
+const FEATURED_ARTICLE_IMAGES = [
+  { match: "haunted-house", src: "/images/guide-haunted-house.webp", alt: "Sam and his friends planning a mission in Agefield" },
+  { match: "ending", src: "/images/guide-ending.webp", alt: "Sam exploring his bedroom in Agefield" },
+  { match: "boss-fight", src: "/images/guide-boss-fight.webp", alt: "A story conversation outside Agefield High" },
+] as const;
+
+function getFeaturedArticleImage(article: ContentItem) {
+  return FEATURED_ARTICLE_IMAGES.find((image) => article.slug.includes(image.match));
+}
+
+export default function HomePageClient({ home, nav, locale, articles, recentArticles }: { home: Home; nav: Nav; locale: string; articles: ContentItem[]; recentArticles: ContentItem[] }) {
   return (
     <div className="space-y-10 sm:space-y-14 lg:space-y-16">
       <StickyAdBanner />
@@ -35,20 +59,14 @@ export default function HomePageClient({ home, locale, articles, recentArticles 
 
         {/* Official media — immediately under hero title */}
         <div className="mx-auto mt-5 w-full max-w-4xl sm:mt-6" aria-label={home.hero.videoLabel}>
-          <TrailerEmbed videoId={YOUTUBE_VIDEO_ID} title="Finish The Word Gameplay" />
+          <TrailerEmbed videoId={YOUTUBE_VIDEO_ID} title="Agefield High: Rock the School Official Gameplay Overview Trailer" />
         </div>
 
-        <p className="mx-auto mt-5 max-w-3xl text-sm leading-relaxed text-muted-foreground sm:mt-6 sm:text-base">{home.hero.description}</p>
-        <div className="mt-4 flex flex-wrap items-center justify-center gap-1.5">{home.hero.stats.map((stat) => <span key={stat} className="inline-flex items-center gap-1 rounded-full bg-muted px-2.5 py-0.5 text-xs font-medium text-muted-foreground">{stat}</span>)}</div>
-        <div className="mx-auto mt-5 flex w-full max-w-lg flex-col items-stretch gap-2.5 px-1 sm:mt-6 sm:max-w-none sm:flex-row sm:flex-wrap sm:items-center sm:justify-center sm:gap-3 sm:px-0">
-          <Button asChild size="lg" className="h-auto min-h-10 w-full whitespace-normal px-4 py-2.5 text-center sm:w-auto sm:px-8">
-            <Link href={localizeHref("/guide", locale)}>{home.hero.primaryCta}</Link>
-          </Button>
-          <Button asChild size="lg" variant="outline" className="h-auto min-h-10 w-full whitespace-normal px-4 py-2.5 text-center sm:w-auto sm:px-8">
-            <Link href={localizeHref("/pets", locale)}>{home.hero.secondaryCta}</Link>
-          </Button>
-          <Button asChild size="lg" variant="secondary" className="h-auto min-h-10 w-full whitespace-normal px-4 py-2.5 text-center sm:w-auto sm:px-8">
-            <Link href={localizeHref("/ranked", locale)}>{home.hero.tertiaryCta}</Link>
+        <p className="text-body mx-auto mt-5 max-w-3xl text-sm leading-relaxed sm:mt-6 sm:text-base">{home.hero.description}</p>
+        <div className="mt-4 flex flex-wrap items-center justify-center gap-1.5">{home.hero.stats.map((stat) => <span key={stat} className="text-meta inline-flex items-center gap-1 rounded-full bg-muted px-2.5 py-0.5 text-xs font-medium">{stat}</span>)}</div>
+        <div className="mx-auto mt-5 flex w-full max-w-sm justify-center px-1 sm:mt-6 sm:px-0">
+          <Button asChild size="lg" className="h-auto min-h-11 w-full whitespace-normal rounded-xl px-6 py-3 text-center shadow-md sm:w-auto sm:min-w-64 sm:px-10">
+            <Link href={localizeHref("/guide/agefield-high-rock-the-school-walkthrough", locale)}>{home.hero.primaryCta}</Link>
           </Button>
         </div>
       </section>
@@ -57,10 +75,10 @@ export default function HomePageClient({ home, locale, articles, recentArticles 
 
       {/* 最近更新 + 新手教程 两栏布局 */}
       <section className="grid gap-6 sm:gap-8 lg:grid-cols-[0.85fr_1.15fr]">
-        {/* 左侧：动态更新 — 最近 8 篇 MDX 文章，支持滚动 */}
+        {/* Latest three MDX articles; the full archive remains one click away. */}
         <Card className="border-border bg-card/70 p-4 sm:p-5">
-          <h2 className="mb-4 text-lg font-bold text-foreground sm:text-xl">{home.updates.title}</h2>
-          <div className="max-h-[420px] space-y-3 overflow-y-auto overscroll-contain pr-1 sm:max-h-[520px]">
+          <h2 className="text-heading-secondary mb-4 text-lg font-bold sm:text-xl">{home.updates.title}</h2>
+          <div className="space-y-3">
             {recentArticles.map((article) => (
               <Link
                 key={`/${article.contentType}/${article.slug}`}
@@ -69,27 +87,39 @@ export default function HomePageClient({ home, locale, articles, recentArticles 
               >
                 <div className="mb-2 flex items-center justify-between gap-2">
                   <Badge className="bg-[hsl(var(--nav-theme))] text-primary-foreground">{article.contentType.replace(/-/g, " ").replace(/\b\w/g, (c) => c.toUpperCase())}</Badge>
-                  <span className="shrink-0 text-xs text-muted-foreground">{article.metadata.date}</span>
+                  <span className="text-meta shrink-0 text-xs">{article.metadata.date}</span>
                 </div>
                 <p className="font-semibold leading-snug text-foreground">{article.metadata.title}</p>
               </Link>
             ))}
           </div>
           <Button asChild className="mt-5 w-full" variant="outline">
-            <Link href={localizeHref("/codes", locale)}>{home.updates.browse}</Link>
+            <Link href={localizeHref("/guide", locale)}>{home.updates.browse}</Link>
           </Button>
         </Card>
 
         {/* 右侧：新手教程 4 步卡片 */}
         <div>
           <p className="text-sm font-semibold text-[hsl(var(--nav-theme))]">{home.start.eyebrow}</p>
-          <h2 className="mt-1 text-2xl font-bold tracking-tight text-foreground sm:text-3xl">{home.start.title}</h2>
+          <h2 className="text-heading-secondary mt-1 text-2xl font-bold tracking-tight sm:text-3xl">{home.start.title}</h2>
+          <figure className="relative mt-4 aspect-[16/7] overflow-hidden rounded-2xl sm:mt-5">
+            <Image
+              src="/images/journey-campus.webp"
+              alt="Sam arriving at Agefield High on a school morning"
+              fill
+              sizes="(max-width: 1024px) 100vw, 52vw"
+              className="object-cover"
+            />
+            <figcaption className="absolute inset-x-0 bottom-0 bg-gradient-to-t from-[hsl(215_55%_14%/0.9)] to-transparent px-4 pb-3 pt-10 text-left text-xs font-semibold text-white sm:px-5 sm:pb-4 sm:text-sm">
+              {home.start.imageCaption}
+            </figcaption>
+          </figure>
           <div className="mt-4 grid gap-3 sm:mt-5 sm:grid-cols-2">
             {home.start.cards.map((card) => (
               <div key={card.number} className="rounded-2xl border border-border bg-card/70 p-4 sm:p-5">
                 <span className="grid h-9 w-9 place-items-center rounded-full bg-[hsl(var(--nav-theme))] text-sm font-bold text-primary-foreground">{card.number}</span>
-                <h3 className="mt-3 font-bold text-foreground sm:mt-4">{card.title}</h3>
-                <p className="mt-2 text-sm leading-6 text-muted-foreground">{card.description}</p>
+                <h3 className="text-heading-tertiary mt-3 font-bold sm:mt-4">{card.title}</h3>
+                <p className="text-body mt-2 text-sm leading-6">{card.description}</p>
               </div>
             ))}
           </div>
@@ -102,7 +132,7 @@ export default function HomePageClient({ home, locale, articles, recentArticles 
           <div className="flex items-end justify-between gap-3">
             <div className="min-w-0">
               <p className="text-sm font-semibold text-[hsl(var(--nav-theme))]">{home.popular.eyebrow}</p>
-              <h2 className="mt-1 text-2xl font-bold tracking-tight text-foreground sm:text-3xl">{home.popular.title}</h2>
+              <h2 className="text-heading-secondary mt-1 text-2xl font-bold tracking-tight sm:text-3xl">{home.popular.title}</h2>
             </div>
             {home.popular.quickLinks && home.popular.quickLinks.length > 0 && (
               <div className="hidden gap-2 md:flex">{home.popular.quickLinks.map((link) => <Badge key={link} variant="outline" className="border-border px-3 py-1 text-muted-foreground">{link}</Badge>)}</div>
@@ -116,14 +146,22 @@ export default function HomePageClient({ home, locale, articles, recentArticles 
               {/* Render cards twice for seamless infinite loop */}
               {[...articles, ...articles].map((article, index) => {
                 const Icon = icons[index % icons.length];
+                const featuredImage = getFeaturedArticleImage(article);
                 return (
-                  <Link key={`${index}-${article.contentType}/${article.slug}`} href={localizeHref(`/${article.contentType}/${article.slug}`, locale)} className="group w-[220px] min-w-[220px] max-w-[300px] flex-shrink-0 rounded-2xl border border-border bg-card/70 p-4 transition hover:border-[hsl(var(--nav-theme-light))] sm:w-[260px] sm:min-w-[260px] sm:p-5">
+                  <Link key={`${index}-${article.contentType}/${article.slug}`} href={localizeHref(`/${article.contentType}/${article.slug}`, locale)} className="group w-[220px] min-w-[220px] max-w-[300px] flex-shrink-0 overflow-hidden rounded-2xl border border-border bg-card/70 transition hover:border-[hsl(var(--nav-theme-light))] sm:w-[260px] sm:min-w-[260px]">
+                    {featuredImage && (
+                      <div className="relative aspect-video overflow-hidden">
+                        <Image src={featuredImage.src} alt={featuredImage.alt} fill sizes="260px" className="object-cover transition duration-500 ease-out group-hover:scale-[1.03]" />
+                      </div>
+                    )}
+                    <div className="p-4 sm:p-5">
                     <div className="flex items-center justify-between gap-2">
                       <span className="grid h-10 w-10 place-items-center rounded-xl bg-muted text-[hsl(var(--nav-theme))]"><Icon className="h-5 w-5" /></span>
                       {article.metadata.badge && <Badge variant="secondary">{article.metadata.badge}</Badge>}
                     </div>
-                    <h3 className="mt-3 text-base font-bold text-foreground group-hover:text-[hsl(var(--nav-theme))] sm:mt-4 sm:text-lg">{article.metadata.title}</h3>
-                    <p className="mt-2 text-sm leading-6 text-muted-foreground line-clamp-3">{article.metadata.description}</p>
+                    <h3 className="text-heading-tertiary mt-3 text-base font-bold group-hover:text-[hsl(var(--nav-theme))] sm:mt-4 sm:text-lg">{article.metadata.title}</h3>
+                    <p className="text-body mt-2 text-sm leading-6 line-clamp-3">{article.metadata.description}</p>
+                    </div>
                   </Link>
                 );
               })}
@@ -135,51 +173,70 @@ export default function HomePageClient({ home, locale, articles, recentArticles 
       {/* About Game (curated, stays in JSON) */}
       <section className="grid gap-6 rounded-2xl border border-border bg-card/60 p-4 sm:gap-8 sm:rounded-3xl sm:p-6 lg:grid-cols-[1.1fr_0.9fr]">
         <div>
-          <h2 className="text-2xl font-bold tracking-tight text-foreground sm:text-3xl">{home.aboutGame.title}</h2>
+          <h2 className="text-heading-secondary text-2xl font-bold tracking-tight sm:text-3xl">{home.aboutGame.title}</h2>
           {home.aboutGame.paragraphs.map((p) => (
-            <p key={p} className="mt-4 text-sm leading-7 text-muted-foreground sm:mt-5 sm:text-base sm:leading-8">{p}</p>
+            <p key={p} className="text-body mt-4 text-sm leading-7 sm:mt-5 sm:text-base sm:leading-8">{p}</p>
           ))}
           <Button asChild className="mt-5 w-full sm:mt-6 sm:w-auto">
             <Link href={localizeHref("/guide", locale)}>{home.aboutGame.cta}</Link>
           </Button>
         </div>
         <div className="grid grid-cols-2 gap-2.5 sm:grid-cols-3 sm:gap-3 lg:grid-cols-2">
-          {home.aboutGame.stats.map((stat) => (
+          {home.aboutGame.stats.filter((_, index) => [0, 1, 3, 4].includes(index)).map((stat) => (
             <div key={stat.label} className="rounded-2xl border border-border bg-background p-3 sm:p-4">
-              <p className="text-[10px] uppercase tracking-[0.18em] text-muted-foreground sm:text-xs">{stat.label}</p>
+              <p className="text-meta text-[10px] uppercase tracking-[0.18em] sm:text-xs">{stat.label}</p>
               <p className="mt-1.5 text-lg font-bold text-foreground sm:mt-2 sm:text-xl">{stat.value}</p>
             </div>
           ))}
         </div>
       </section>
 
+      <section className="rounded-2xl border border-border bg-card/60 p-4 sm:rounded-3xl sm:p-6">
+        <div className="max-w-2xl">
+          <h2 className="text-heading-secondary text-2xl font-bold tracking-tight sm:text-3xl">{home.browseTopics.title}</h2>
+          <p className="text-body mt-2 text-sm leading-6 sm:text-base">{home.browseTopics.description}</p>
+        </div>
+        <nav className="mt-5 grid gap-2 sm:grid-cols-2 sm:gap-3 lg:grid-cols-4" aria-label={home.browseTopics.title}>
+          {NAVIGATION_CONFIG.map((topic) => {
+            const Icon = topic.icon;
+            return (
+              <Link key={topic.key} href={localizeHref(topic.path, locale)} className="group flex min-h-14 items-center gap-3 rounded-xl bg-background px-3.5 py-3 text-sm font-semibold text-foreground transition hover:bg-muted hover:text-[hsl(var(--nav-theme))] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring">
+                <Icon className="h-4 w-4 shrink-0 text-[hsl(var(--nav-theme))]" />
+                <span className="min-w-0 flex-1">{nav[topic.key as keyof Nav]}</span>
+                <ChevronRight className="h-4 w-4 shrink-0 text-muted-foreground transition-transform group-hover:translate-x-0.5" />
+              </Link>
+            );
+          })}
+        </nav>
+      </section>
+
       {/* 8 Module Sections (full-width stacked, matching reference site style) */}
       {home.explore.modules && home.explore.modules.length > 0 && (
         <section>
-          <h2 className="text-2xl font-bold tracking-tight text-foreground sm:text-3xl">{home.explore.title}</h2>
-          <p className="mt-2 text-sm text-muted-foreground sm:text-base">{home.explore.description}</p>
+          <h2 className="text-heading-secondary text-2xl font-bold tracking-tight sm:text-3xl">{home.explore.title}</h2>
+          <p className="text-body mt-2 text-sm sm:text-base">{home.explore.description}</p>
 
           {/* Quick nav pills */}
           <div className="mobile-scroll-x mt-4 flex flex-nowrap gap-2 pb-1 sm:mt-5 sm:flex-wrap sm:pb-0">
             {home.explore.modules.map((mod) => (
-              <Link
+              <a
                 key={mod.order}
-                href={localizeHref(mod.href, locale)}
+                href={`#explore-${mod.order}`}
                 className="shrink-0 rounded-full border border-border bg-card/70 px-3.5 py-1.5 text-sm text-muted-foreground transition hover:border-[hsl(var(--nav-theme-light))] hover:text-[hsl(var(--nav-theme))]"
               >
                 {mod.name}
-              </Link>
+              </a>
             ))}
           </div>
 
           {/* Stacked module content sections */}
           <div className="mt-6 space-y-4 sm:mt-8 sm:space-y-6">
             {home.explore.modules.map((mod) => (
-                <div key={mod.order} className="overflow-hidden rounded-2xl border border-border bg-card/70">
+                <div id={`explore-${mod.order}`} key={mod.order} className="scroll-mt-24 overflow-hidden rounded-2xl border border-border bg-card/70">
                 {/* Module header */}
                 <div className="border-b border-border bg-muted/30 px-4 py-3.5 sm:px-6 sm:py-4">
-                  <h3 className="text-base font-bold text-foreground sm:text-lg">{mod.name}</h3>
-                  <p className="mt-1 text-sm leading-6 text-muted-foreground sm:leading-7">{mod.description}</p>
+                  <h3 className="text-heading-tertiary text-base font-bold sm:text-lg">{mod.name}</h3>
+                  <p className="text-body mt-1 text-sm leading-6 sm:leading-7">{mod.description}</p>
                 </div>
 
                 {/* Module preview — styled per displayType */}
@@ -191,9 +248,9 @@ export default function HomePageClient({ home, locale, articles, recentArticles 
                         <div key={i} className="flex flex-col gap-2 rounded-xl border border-border bg-muted p-3.5 sm:flex-row sm:items-center sm:justify-between sm:gap-4 sm:p-4">
                           <div className="flex min-w-0 flex-col gap-2 sm:flex-row sm:items-center sm:gap-3">
                             <code className="w-fit rounded-lg bg-background px-3 py-1.5 font-mono text-sm font-bold text-foreground">{h.label}</code>
-                            <span className="text-sm text-muted-foreground">{h.detail}</span>
+                            <span className="text-body text-sm">{h.detail}</span>
                           </div>
-                          {"badge" in h && h.badge && <Badge className="w-fit shrink-0 bg-emerald-600 text-[10px] text-white">{h.badge}</Badge>}
+                          {"badge" in h && typeof h.badge === "string" && h.badge && <Badge className="w-fit shrink-0 bg-emerald-600 text-[10px] text-white">{h.badge}</Badge>}
                         </div>
                       ))}
                     </div>
@@ -205,7 +262,7 @@ export default function HomePageClient({ home, locale, articles, recentArticles 
                       {mod.highlights.map((h, i) => (
                         <div key={i} className="flex items-start gap-3">
                           <span className="grid h-7 w-7 shrink-0 place-items-center rounded-full bg-[hsl(var(--nav-theme))] text-xs font-bold text-primary-foreground">{h.label}</span>
-                          <span className="text-sm leading-6 text-muted-foreground">{h.detail}</span>
+                          <span className="text-body text-sm leading-6">{h.detail}</span>
                         </div>
                       ))}
                     </div>
@@ -222,15 +279,15 @@ export default function HomePageClient({ home, locale, articles, recentArticles 
                           h.label === "C" ? "border-zinc-500/40 bg-zinc-500/10" :
                           "border-border bg-muted";
                         const tierText =
-                          h.label === "S" ? "text-amber-600 dark:text-amber-400" :
-                          h.label === "A" ? "text-emerald-600 dark:text-emerald-400" :
-                          h.label === "B" ? "text-blue-600 dark:text-blue-400" :
-                          h.label === "C" ? "text-zinc-600 dark:text-zinc-400" :
+                          h.label === "S" ? "text-amber-400" :
+                          h.label === "A" ? "text-emerald-400" :
+                          h.label === "B" ? "text-blue-400" :
+                          h.label === "C" ? "text-zinc-400" :
                           "text-muted-foreground";
                         return (
                           <div key={i} className={`rounded-xl border p-4 ${tierColor}`}>
                             <span className={`text-sm font-bold ${tierText}`}>{h.label} Tier</span>
-                            <p className="mt-1.5 text-xs leading-5 text-muted-foreground">{h.detail}</p>
+                            <p className="text-body mt-1.5 text-xs leading-5">{h.detail}</p>
                           </div>
                         );
                       })}
@@ -243,17 +300,17 @@ export default function HomePageClient({ home, locale, articles, recentArticles 
                       {mod.highlights.map((h, i) => (
                         <div key={i} className="flex items-center gap-3 rounded-xl border border-border bg-muted p-3">
                           <span className="text-xl">{h.label}</span>
-                          <span className="text-sm font-medium text-foreground">{h.detail}</span>
+                          <span className="text-body text-sm font-medium">{h.detail}</span>
                         </div>
                       ))}
                     </div>
                   )}
 
                   <Link
-                    href={localizeHref(mod.href, locale)}
-                    className="mt-5 inline-flex items-center text-sm font-semibold text-[hsl(var(--nav-theme))] hover:underline"
+                    href={localizeHref(mod.href || EXPLORE_DESTINATIONS[mod.order] || "/guide", locale)}
+                    className="mt-5 inline-flex min-h-11 items-center text-sm font-semibold text-[hsl(var(--nav-theme))] underline-offset-4 hover:underline"
                   >
-                    Read Full Guide <ChevronRight className="ml-1 h-4 w-4" />
+                    {home.explore.readFullGuide} <ChevronRight className="ml-1 h-4 w-4" />
                   </Link>
                 </div>
               </div>
@@ -266,30 +323,30 @@ export default function HomePageClient({ home, locale, articles, recentArticles 
 
       {/* FAQ (curated, stays in JSON) */}
       <section>
-        <h2 className="text-2xl font-bold tracking-tight text-foreground sm:text-3xl">{home.faq.title}</h2>
-        <p className="mt-2 text-sm text-muted-foreground sm:text-base">{home.faq.description}</p>
+        <h2 className="text-heading-secondary text-2xl font-bold tracking-tight sm:text-3xl">{home.faq.title}</h2>
+        <p className="text-body mt-2 text-sm sm:text-base">{home.faq.description}</p>
         <Accordion type="single" collapsible className="mt-5 rounded-2xl border border-border bg-card/70 px-4 sm:mt-6 sm:px-5">
           {home.faq.items.map((item, index) => (
             <AccordionItem key={item.question} value={`item-${index}`}>
-              <AccordionTrigger className="text-left text-sm text-foreground sm:text-base">{item.question}</AccordionTrigger>
-              <AccordionContent className="text-sm leading-7 text-muted-foreground sm:text-base">{item.answer}</AccordionContent>
+              <AccordionTrigger className="text-heading-tertiary text-left text-sm sm:text-base">{item.question}</AccordionTrigger>
+              <AccordionContent className="text-body text-sm leading-7 sm:text-base">{item.answer}</AccordionContent>
             </AccordionItem>
           ))}
         </Accordion>
       </section>
 
       {/* Final CTA (curated, stays in JSON) */}
-      <section className="rounded-2xl border border-border bg-gradient-to-br from-muted to-card p-5 text-center sm:rounded-3xl sm:p-8">
-        <h2 className="text-2xl font-bold tracking-tight text-foreground sm:text-3xl">{home.finalCta.title}</h2>
-        <p className="mx-auto mt-3 max-w-2xl text-sm text-muted-foreground sm:text-base">{home.finalCta.description}</p>
-        <div className="mx-auto mt-5 flex w-full max-w-lg flex-col items-stretch gap-2.5 px-1 sm:mt-6 sm:max-w-none sm:flex-row sm:flex-wrap sm:justify-center sm:gap-3 sm:px-0">
-          <Button asChild size="lg" className="h-auto min-h-10 w-full whitespace-normal px-4 py-2.5 text-center sm:w-auto sm:px-8">
-            <Link href={localizeHref("/guide", locale)}>{home.finalCta.primary}<ArrowRight className="ml-2 h-4 w-4" /></Link>
-          </Button>
-          <Button asChild size="lg" variant="outline" className="h-auto min-h-10 w-full whitespace-normal px-4 py-2.5 text-center sm:w-auto sm:px-8">
-            <Link href={ROBLOX_PLAY_URL}>{home.finalCta.secondary}</Link>
+      <section className="relative isolate overflow-hidden rounded-2xl bg-[hsl(215_55%_14%)] px-5 py-14 text-center text-white shadow-xl sm:rounded-3xl sm:px-8 sm:py-20">
+        <Image src="/images/final-cta-campus.webp" alt="Agefield High campus and school bus" fill sizes="(max-width: 1280px) 100vw, 1200px" className="-z-20 object-cover" />
+        <div className="absolute inset-0 -z-10 bg-[hsl(215_55%_12%/0.78)]" />
+        <h2 className="text-2xl font-bold tracking-tight text-white sm:text-4xl">{home.finalCta.title}</h2>
+        <p className="mx-auto mt-3 max-w-2xl text-sm leading-6 text-blue-50/90 sm:text-base">{home.finalCta.description}</p>
+        <div className="mx-auto mt-6 flex w-full max-w-sm justify-center px-1 sm:mt-7 sm:px-0">
+          <Button asChild size="lg" className="h-auto min-h-11 w-full whitespace-normal bg-[hsl(var(--nav-theme-light))] px-6 py-3 text-center font-bold text-[hsl(215_55%_16%)] shadow-lg hover:bg-[hsl(43_91%_66%)] sm:w-auto sm:min-w-64 sm:px-10">
+            <Link href={localizeHref("/guide/agefield-high-rock-the-school-walkthrough", locale)}>{home.finalCta.primary}<ArrowRight className="ml-2 h-4 w-4" /></Link>
           </Button>
         </div>
+        <Link href={STEAM_PLAY_URL} className="mt-4 inline-flex text-sm font-semibold text-white/90 underline decoration-white/40 underline-offset-4 transition hover:text-white">{home.finalCta.secondary}</Link>
       </section>
     </div>
   );

@@ -13,8 +13,8 @@ interface Heading {
  * 移动端：标题和正文之间显示可折叠 TOC 面板
  * 桌面端：隐藏（侧边栏有单独的 heading 链接）
  */
-export function MobileTOC({ headings, label }: { headings: Heading[]; label: string }) {
-  const [open, setOpen] = useState(true);
+export function MobileTOC({ headings, label, sectionsLabel = "sections" }: { headings: Heading[]; label: string; sectionsLabel?: string }) {
+  const [open, setOpen] = useState(false);
 
   if (headings.length === 0) return null;
 
@@ -23,10 +23,11 @@ export function MobileTOC({ headings, label }: { headings: Heading[]; label: str
       <div className="flex items-center justify-between gap-2">
         <button
           onClick={() => setOpen(!open)}
+          aria-expanded={open}
           className="flex min-h-10 items-center gap-2 text-xs font-bold uppercase tracking-[0.18em] text-muted-foreground sm:text-sm"
         >
           <ChevronDown className={`h-4 w-4 shrink-0 transition-transform ${open ? "rotate-180" : ""}`} />
-          <span className="truncate">{label}</span>
+          <span className="truncate">{label} · {headings.length} {sectionsLabel}</span>
         </button>
         {open && (
           <button onClick={() => setOpen(false)} className="touch-target grid place-items-center text-muted-foreground hover:text-foreground" aria-label="Close TOC">

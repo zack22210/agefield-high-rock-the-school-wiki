@@ -81,6 +81,7 @@ export type ContentData = {
   metadata: ContentMetadata;
   MDXContent: React.ComponentType;
   headings: Heading[];
+  wordCount: number;
 };
 
 const CONTENT_ROOT = path.join(process.cwd(), "content");
@@ -117,6 +118,18 @@ function getHeadingsFromFile(filePath: string): Heading[] {
     return extractHeadings(source);
   } catch {
     return [];
+  }
+}
+
+function getWordCountFromFile(filePath: string): number {
+  try {
+    const source = fs.readFileSync(filePath, "utf-8")
+      .replace(/export const metadata\s*=\s*\{[\s\S]*?\}\s*/m, "")
+      .replace(/<[^>]+>/g, " ")
+      .replace(/[#*_`{}[\]()>-]/g, " ");
+    return source.match(/[\p{L}\p{N}][\p{L}\p{N}'’:-]*/gu)?.length ?? 0;
+  } catch {
+    return 0;
   }
 }
 
@@ -195,6 +208,7 @@ export async function getContent(contentType: string, slugSegments: string[], la
       metadata: metadata as ContentMetadata,
       MDXContent,
       headings: getHeadingsFromFile(mdxPath),
+      wordCount: getWordCountFromFile(mdxPath),
     };
   } catch {
     // Fallback 到英文
@@ -214,6 +228,7 @@ export async function getContent(contentType: string, slugSegments: string[], la
           metadata: metadata as ContentMetadata,
           MDXContent,
           headings: getHeadingsFromFile(enMdxPath),
+          wordCount: getWordCountFromFile(enMdxPath),
         };
       } catch {
         return null;
@@ -240,61 +255,66 @@ export interface NavGroup {
 // 分组标题映射：slug → 人类可读标题（默认英文）
 const GROUP_TITLES: Record<string, string> = {
   guide: "Guide",
-  codes: "Codes",
-  pets: "Pets",
-  ranked: "Ranked",
-  "win-streaks": "Win Streaks",
-  "lucky-blocks": "Lucky Blocks",
-  "game-passes": "Game Passes",
+  release: "Release",
+  platforms: "Platforms",
+  purchase: "Purchase",
+  reviews: "Reviews",
+  media: "Media",
+  details: "Details",
+  community: "Community",
 };
 
 // locale → 分组标题映射
 const GROUP_TITLES_BY_LOCALE: Record<string, Record<string, string>> = {
-  pt: {
-    guide: "Guia",
-    codes: "Códigos",
-    pets: "Pets",
-    ranked: "Ranqueada",
-    "win-streaks": "Sequências",
-    "lucky-blocks": "Lucky Blocks",
-    "game-passes": "Passes",
+  br: {
+    guide: "Guias",
+    release: "Lançamento",
+    platforms: "Plataformas",
+    purchase: "Compra",
+    reviews: "Avaliações",
+    media: "Mídia",
+    details: "Detalhes",
+    community: "Comunidade",
   },
   es: {
-    guide: "Guía",
-    codes: "Códigos",
-    pets: "Mascotas",
-    ranked: "Clasificatoria",
-    "win-streaks": "Rachas",
-    "lucky-blocks": "Lucky Blocks",
-    "game-passes": "Pases",
+    guide: "Guías",
+    release: "Lanzamiento",
+    platforms: "Plataformas",
+    purchase: "Compra",
+    reviews: "Reseñas",
+    media: "Multimedia",
+    details: "Detalles",
+    community: "Comunidad",
   },
-  id: {
-    guide: "Panduan",
-    codes: "Kode",
-    pets: "Pet",
-    ranked: "Ranked",
-    "win-streaks": "Win Streak",
-    "lucky-blocks": "Lucky Block",
-    "game-passes": "Game Pass",
+  ru: {
+    guide: "Руководства",
+    release: "Релиз",
+    platforms: "Платформы",
+    purchase: "Покупка",
+    reviews: "Обзоры",
+    media: "Медиа",
+    details: "Подробности",
+    community: "Сообщество",
   },
 };
 
 // locale → "Overview" 翻译
 const OVERVIEW_LABEL_BY_LOCALE: Record<string, string> = {
-  pt: "Visão geral",
+  br: "Visão geral",
   es: "Resumen",
-  id: "Ikhtisar",
+  ru: "Обзор",
 };
 
 // 分组排序顺序
 const GROUP_ORDER: string[] = [
   "guide",
-  "codes",
-  "pets",
-  "ranked",
-  "win-streaks",
-  "lucky-blocks",
-  "game-passes",
+  "release",
+  "platforms",
+  "purchase",
+  "reviews",
+  "media",
+  "details",
+  "community",
 ];
 
 /**

@@ -8,10 +8,10 @@ import { defineRouting } from "next-intl/routing";
  *   2. The static imports + `messagesMap` in `src/i18n/request.ts`.
  *   3. The matching JSON file in `src/locales/<locale>.json`.
  *
- * From 00基础信息.md: en, es, pt, id (no Chinese).
+ * Content locales: English plus Russian, Spanish, and Brazilian Portuguese.
  */
 export const routing = defineRouting({
-  locales: ["en", "es", "pt", "id"],
+  locales: ["en", "ru", "es", "br"],
   defaultLocale: "en",
   // English is served without a `/en` prefix (e.g. `/codes`, `/guide/...`).
   localePrefix: "as-needed",

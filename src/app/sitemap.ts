@@ -4,7 +4,7 @@ import { CONTENT_TYPES } from "@/config/navigation";
 import { routing } from "@/i18n/routing";
 
 export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
-  const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || "https://finishtheword.wiki";
+  const siteUrl = (process.env.NEXT_PUBLIC_SITE_URL || "https://agefieldhighrocktheschool.online").replace(/\/$/, "");
 
   // Static paths that always exist
   const staticPaths = ["/", "/privacy-policy", "/terms-of-service", "/copyright", "/about", ...CONTENT_TYPES.map((ct) => `/${ct}`)];
