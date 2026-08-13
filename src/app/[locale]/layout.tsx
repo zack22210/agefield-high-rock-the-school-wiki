@@ -9,7 +9,7 @@ import { JsonLd, SiteFooter, SiteHeader } from "@/components/site";
 import { routing } from "@/i18n/routing";
 
 const siteUrl = (process.env.NEXT_PUBLIC_SITE_URL || "https://agefieldhighrocktheschool.online").replace(/\/$/, "");
-const gaId = process.env.NEXT_PUBLIC_GA_MEASUREMENT_ID || "G-WEYXC411EQ";
+const gaId = process.env.NEXT_PUBLIC_GA_MEASUREMENT_ID || "G-GD3D4FKH9B";
 
 export function generateStaticParams() {
   return routing.locales.map((locale) => ({ locale }));
