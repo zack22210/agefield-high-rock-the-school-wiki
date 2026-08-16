@@ -27,11 +27,11 @@ export function FixedSidebarAds() {
           className={`fixed top-20 z-10 w-40 ${sideAdVisibleClass}`}
           style={{ left: inset }}
         >
-          <div className="relative pt-4">
+          <div className="relative">
             <button
               type="button"
               onClick={() => setLeftDismissed(true)}
-              className="absolute left-1/2 top-4 z-10 grid h-8 w-8 -translate-x-1/2 -translate-y-1/2 place-items-center rounded-full bg-background text-muted-foreground shadow-lg transition hover:text-foreground"
+              className="absolute right-0 top-0 z-10 grid h-8 w-8 -translate-y-1/2 place-items-center rounded-full bg-background text-muted-foreground shadow-lg transition hover:text-foreground"
               aria-label="Close left sidebar advertisement"
             >
               <X className="h-4 w-4" />
@@ -45,11 +45,11 @@ export function FixedSidebarAds() {
           className={`fixed top-20 z-10 w-40 ${sideAdVisibleClass}`}
           style={{ right: inset }}
         >
-          <div className="relative pt-4">
+          <div className="relative">
             <button
               type="button"
               onClick={() => setRightDismissed(true)}
-              className="absolute left-1/2 top-4 z-10 grid h-8 w-8 -translate-x-1/2 -translate-y-1/2 place-items-center rounded-full bg-background text-muted-foreground shadow-lg transition hover:text-foreground"
+              className="absolute right-0 top-0 z-10 grid h-8 w-8 -translate-y-1/2 place-items-center rounded-full bg-background text-muted-foreground shadow-lg transition hover:text-foreground"
               aria-label="Close right sidebar advertisement"
             >
               <X className="h-4 w-4" />
