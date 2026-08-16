@@ -1027,3 +1027,4 @@ Require stack:
  ✓ Compiled in 1411ms (1717 modules)
 <w> [webpack.cache.PackFileCacheStrategy] Caching failed for pack: Error: ENOENT: no such file or directory, rename 'D:\Web出海\roblox模板\agefield-high-rock-the-school-wiki\.next\cache\webpack\server-development\0.pack.gz_' -> 'D:\Web出海\roblox模板\agefield-high-rock-the-school-wiki\.next\cache\webpack\server-development\0.pack.gz'
  ✓ Compiled in 1800ms (1699 modules)
+ ✓ Compiled in 1592ms (1713 modules)
