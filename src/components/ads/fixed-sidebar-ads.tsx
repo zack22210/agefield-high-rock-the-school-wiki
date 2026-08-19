@@ -2,12 +2,11 @@
 
 import { useState } from "react";
 import { X } from "lucide-react";
-import { getAdKey, isValidAdKey } from "@/config/ad-keys";
 import { SidebarAd } from "./sidebar-ad";
 import { sideAdInset } from "./side-ad-layout";
 
-const leftAdKey = getAdKey("SIDEBAR_160X600");
-const rightAdKey = getAdKey("SIDEBAR_160X300");
+const leftAdKey = "embedded-in-html";
+const rightAdKey = "embedded-in-html";
 
 /** Tailwind needs a static arbitrary breakpoint class (matches SIDE_AD_MIN_VIEWPORT_PX). */
 const sideAdVisibleClass = "hidden min-[1680px]:block";
@@ -16,13 +15,11 @@ export function FixedSidebarAds() {
   const [leftDismissed, setLeftDismissed] = useState(false);
   const [rightDismissed, setRightDismissed] = useState(false);
 
-  if (!isValidAdKey(leftAdKey) && !isValidAdKey(rightAdKey)) return null;
-
   const inset = sideAdInset();
 
   return (
     <>
-      {isValidAdKey(leftAdKey) && !leftDismissed ? (
+      {!leftDismissed ? (
         <aside
           className={`fixed top-20 z-10 w-40 ${sideAdVisibleClass}`}
           style={{ left: inset }}
@@ -40,7 +37,7 @@ export function FixedSidebarAds() {
           </div>
         </aside>
       ) : null}
-      {isValidAdKey(rightAdKey) && !rightDismissed ? (
+      {!rightDismissed ? (
         <aside
           className={`fixed top-20 z-10 w-40 ${sideAdVisibleClass}`}
           style={{ right: inset }}

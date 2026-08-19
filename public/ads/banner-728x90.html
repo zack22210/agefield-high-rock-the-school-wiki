@@ -13,23 +13,17 @@
         overflow: hidden;
       }
     </style>
-    <script type="text/javascript">
-      (function () {
-        var key = new URLSearchParams(location.search).get("key");
-        if (!key || !/^[a-f0-9]{32}$/i.test(key)) return;
-        window.atOptions = {
-          key: key,
-          format: "iframe",
-          width: 728,
-          height: 90,
-          params: {},
-        };
-        var s = document.createElement("script");
-        s.type = "text/javascript";
-        s.src = "https://www.highperformanceformat.com/" + key + "/invoke.js";
-        document.head.appendChild(s);
-      })();
-    </script>
   </head>
-  <body></body>
+  <body>
+    <script type="text/javascript">
+      window.atOptions = {
+        key: "973ee7a0a3472bc16bc5bbc568a72881",
+        format: "iframe",
+        width: 728,
+        height: 90,
+        params: {},
+      };
+    </script>
+    <script type="text/javascript" src="https://www.highperformanceformat.com/973ee7a0a3472bc16bc5bbc568a72881/invoke.js"></script>
+  </body>
 </html>

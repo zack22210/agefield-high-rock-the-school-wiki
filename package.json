@@ -3,9 +3,10 @@
   "version": "0.1.0",
   "private": true,
   "scripts": {
-    "dev": "next dev -H 0.0.0.0",
-    "build": "next build",
+    "dev": "node scripts/sync-ad-html.mjs && next dev -H 0.0.0.0",
+    "build": "node scripts/sync-ad-html.mjs && next build",
     "start": "next start",
+    "ads:sync": "node scripts/sync-ad-html.mjs",
     "lint": "bunx tsc --noEmit && next lint",
     "format": "bunx biome format --write",
     "seoscout:setup": "bash scripts/setup-seoscout.sh",
