@@ -46,6 +46,7 @@ export function findFileBySlug(dir: string, slug: string, basePath: string[] = [
 // 通用 Metadata 接口（与 MDX 文件 export const metadata 对应）
 export interface ContentMetadata {
   title: string;
+  heading?: string;
   description: string;
   category: string;
   date: string;
@@ -85,6 +86,23 @@ export type ContentData = {
 };
 
 const CONTENT_ROOT = path.join(process.cwd(), "content");
+
+const ENGLISH_REDIRECTED_CONTENT = new Set([
+  "guide/agefield-high-rock-the-school-walkthrough",
+  "guide/agefield-high-rock-the-school-true-ending",
+  "platforms/agefield-high-rock-the-school-xbox",
+  "platforms/agefield-high-rock-the-school-ps5",
+  "platforms/agefield-high-rock-the-school-nintendo-switch",
+  "details/agefield-high-rock-the-school-game-size",
+  "release/agefield-high-rock-the-school-console-release-date",
+  "release/agefield-high-rock-the-school-early-access",
+  "reviews/agefield-high-rock-the-school-ign",
+  "reviews/agefield-high-rock-the-school-metacritic",
+]);
+
+function isRedirectedEnglishContent(language: Locale, contentType: string, slug: string) {
+  return language === "en" && ENGLISH_REDIRECTED_CONTENT.has(`${contentType}/${slug}`);
+}
 
 /**
  * 从 MDX 源文件中提取 ## 和 ### 标题
@@ -159,7 +177,9 @@ function getSlugsFromDirectory(dir: string, basePath: string[] = []): string[][]
  */
 export async function getAllContent(contentType: string, language: Locale): Promise<ContentItem[]> {
   const contentDir = path.join(CONTENT_ROOT, language, contentType);
-  const slugPaths = getSlugsFromDirectory(contentDir);
+  const slugPaths = getSlugsFromDirectory(contentDir).filter(
+    (segments) => !isRedirectedEnglishContent(language, contentType, segments.join("/")),
+  );
 
   const items = await Promise.all(
     slugPaths.map(async (segments) => {
@@ -335,7 +355,9 @@ export function getDynamicNavigation(language: Locale = "en"): NavGroup[] {
     // 跳过不在 CONTENT_TYPES 中的目录，避免显示会 404 的导航链接
     if (!CONTENT_TYPES.includes(groupSlug as typeof CONTENT_TYPES[number])) continue;
     const groupDir = path.join(localeDir, groupSlug);
-    const slugPaths = getSlugsFromDirectory(groupDir);
+    const slugPaths = getSlugsFromDirectory(groupDir).filter(
+      (segments) => !isRedirectedEnglishContent(language, groupSlug, segments.join("/")),
+    );
 
     if (slugPaths.length === 0) continue;
 
@@ -415,7 +437,9 @@ export async function getAllContentPaths(language: Locale) {
   const contentTypeDirs = entries.filter((entry) => entry.isDirectory());
 
   const paths = contentTypeDirs.flatMap((entry) => {
-    const segments = getSlugsFromDirectory(path.join(localeDir, entry.name));
+    const segments = getSlugsFromDirectory(path.join(localeDir, entry.name)).filter(
+      (slug) => !isRedirectedEnglishContent(language, entry.name, slug.join("/")),
+    );
     return segments.map((slug) => ({ contentType: entry.name, slug }));
   });
 

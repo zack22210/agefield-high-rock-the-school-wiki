@@ -4,23 +4,22 @@ import { CONTENT_TYPES } from "@/config/navigation";
 import { routing } from "@/i18n/routing";
 
 export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
-  const siteUrl = (process.env.NEXT_PUBLIC_SITE_URL || "https://agefieldhighrocktheschool.online").replace(/\/$/, "");
+  const siteUrl = (process.env.NEXT_PUBLIC_SITE_URL || "https://www.agefieldhighrocktheschool.online").replace(/\/$/, "");
 
   // Static paths that always exist
   const staticPaths = ["/", "/privacy-policy", "/terms-of-service", "/copyright", "/about", ...CONTENT_TYPES.map((ct) => `/${ct}`)];
 
-  // Dynamic paths: scan actual MDX content files
-  const contentPaths = await getAllContentPaths("en");
-  const dynamicPaths = contentPaths.map((item) => `/${[item.contentType, ...item.slug].join("/")}`);
-
-  const paths = [...staticPaths, ...dynamicPaths];
-
-  return routing.locales.flatMap((locale) =>
-    paths.map((path) => ({
+  const entries = await Promise.all(routing.locales.map(async (locale) => {
+    const contentPaths = await getAllContentPaths(locale);
+    const dynamicPaths = contentPaths.map((item) => `/${[item.contentType, ...item.slug].join("/")}`);
+    const paths = [...staticPaths, ...dynamicPaths];
+    return paths.map((path) => ({
       url: `${siteUrl}${locale === "en" ? "" : `/${locale}`}${path === "/" ? "" : path}`,
       lastModified: new Date(),
       changeFrequency: path === "/" ? ("daily" as const) : ("weekly" as const),
-      priority: path === "/" ? 1 : path === "/codes" ? 0.8 : 0.6,
-    })),
-  );
+      priority: path === "/" ? 1 : path === "/guide" ? 0.9 : 0.6,
+    }));
+  }));
+
+  return entries.flat();
 }

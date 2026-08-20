@@ -33,7 +33,7 @@ export const HOME_NAVIGATION_CONFIG = [
   { key: "guide", path: "/guide" },
   { key: "missions", path: "/guide/agefield-high-rock-the-school-haunted-house-mission" },
   { key: "characters", path: "/details/agefield-high-rock-the-school-characters" },
-  { key: "endings", path: "/guide/agefield-high-rock-the-school-true-ending" },
+  { key: "endings", path: "/guide/agefield-high-rock-the-school-ashley-ending" },
   { key: "platforms", path: "/platforms" },
 ] as const;
 

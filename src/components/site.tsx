@@ -226,7 +226,7 @@ export async function SiteFooter({ locale }: { locale: string }) {
             links={[
               [t("beginnerGuide"), "/guide"],
               [t("petsGuide"), "/guide"],
-              [t("rankedGuides"), "/guide/agefield-high-rock-the-school-true-ending"],
+              [t("rankedGuides"), "/guide/agefield-high-rock-the-school-ashley-ending"],
               [t("winStreakGuides"), "/guide/agefield-high-rock-the-school-boss-fight"],
               [t("privacyPolicy"), "/privacy-policy"],
               [t("termsOfService"), "/terms-of-service"],

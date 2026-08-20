@@ -4,6 +4,7 @@ import { MdxParagraph } from "@/components/mdx/MdxParagraph";
 import { Callout, Result, Spoiler } from "@/components/mdx/Callout";
 import { Step, Steps } from "@/components/mdx/Steps";
 import { Checklist } from "@/components/mdx/Checklist";
+import { AgefieldMap } from "@/components/mdx/AgefieldMap";
 
 function toHeadingId(children: React.ReactNode): string {
   const text = String(children).replace(/<[^>]*>/g, "").trim();
@@ -29,6 +30,7 @@ const defaultComponents: MDXComponents = {
   Steps,
   Step,
   Checklist,
+  AgefieldMap,
   h2: ({ children, id }) => {
     const headingId = id || toHeadingId(children);
     return (

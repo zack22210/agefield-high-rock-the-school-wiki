@@ -34,11 +34,16 @@ export function LanguageSwitcher({ locale }: { locale: string }) {
   const handleSwitch = (nextLocale: Locale) => {
     if (nextLocale === locale) return;
 
+    const walkthrough = "/guide/agefield-high-rock-the-school-walkthrough";
     let newPath = pathname;
 
     // 移除当前 locale 前缀（如果有）
     if (locale !== routing.defaultLocale) {
       newPath = newPath.replace(`/${locale}`, "") || "/";
+    }
+
+    if (newPath === "/guide" || newPath === walkthrough) {
+      newPath = nextLocale === routing.defaultLocale ? "/guide" : walkthrough;
     }
 
     // 添加新 locale 前缀（如果不是默认语言）

@@ -7,7 +7,7 @@ import { notFound } from "next/navigation";
 import { JsonLd, SiteFooter, SiteHeader } from "@/components/site";
 import { routing } from "@/i18n/routing";
 
-const siteUrl = (process.env.NEXT_PUBLIC_SITE_URL || "https://agefieldhighrocktheschool.online").replace(/\/$/, "");
+const siteUrl = (process.env.NEXT_PUBLIC_SITE_URL || "https://www.agefieldhighrocktheschool.online").replace(/\/$/, "");
 const gaId = process.env.NEXT_PUBLIC_GA_MEASUREMENT_ID || "G-GD3D4FKH9B";
 
 export function generateStaticParams() {
@@ -56,7 +56,7 @@ export default async function LocaleLayout({ children, params }: { children: Rea
   };
 
   return (
-    <html lang={locale} className="dark">
+    <html lang={locale === "br" ? "pt-BR" : locale} className="dark">
       <body className="min-h-screen bg-background font-sans text-foreground antialiased">
         <NextIntlClientProvider messages={messages}>
           <JsonLd data={organization} />

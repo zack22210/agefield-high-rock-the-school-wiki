@@ -25,12 +25,12 @@ const STEAM_PLAY_URL = "https://store.steampowered.com/app/3562580/Agefield_High
 const YOUTUBE_VIDEO_ID = "ClY-3UopEeU";
 
 const EXPLORE_DESTINATIONS: Record<number, string> = {
-  1: "/guide/agefield-high-rock-the-school-walkthrough",
+  1: "/guide",
   2: "/guide/agefield-high-rock-the-school-haunted-house-mission",
-  3: "/guide/agefield-high-rock-the-school-walkthrough",
-  4: "/guide/agefield-high-rock-the-school-walkthrough",
-  5: "/guide/agefield-high-rock-the-school-true-ending",
-  6: "/guide/agefield-high-rock-the-school-walkthrough",
+  3: "/guide",
+  4: "/details/agefield-high-rock-the-school-map",
+  5: "/guide/agefield-high-rock-the-school-ashley-ending",
+  6: "/guide",
   7: "/purchase/agefield-high-rock-the-school-buy",
   8: "/details/agefield-high-rock-the-school-system-requirements",
 };
@@ -64,9 +64,21 @@ export default function HomePageClient({ home, nav, locale, articles, recentArti
 
         <p className="text-body mx-auto mt-5 max-w-3xl text-sm leading-relaxed sm:mt-6 sm:text-base">{home.hero.description}</p>
         <div className="mt-4 flex flex-wrap items-center justify-center gap-1.5">{home.hero.stats.map((stat) => <span key={stat} className="text-meta inline-flex items-center gap-1 rounded-full bg-muted px-2.5 py-0.5 text-xs font-medium">{stat}</span>)}</div>
+        <nav className="mx-auto mt-5 grid max-w-3xl grid-cols-2 gap-2 sm:grid-cols-4" aria-label="Core wiki guides">
+          {[
+            [nav.guide, "/guide"],
+            [nav.map, "/details/agefield-high-rock-the-school-map"],
+            [nav.characters, "/details/agefield-high-rock-the-school-characters"],
+            [nav.endings, "/guide/agefield-high-rock-the-school-ashley-ending"],
+          ].map(([label, href]) => (
+            <Link key={href} href={localizeHref(href, locale)} className="rounded-xl bg-muted px-3 py-3 text-sm font-bold text-foreground transition hover:bg-secondary">
+              {label}<ChevronRight className="ml-1 inline h-4 w-4" aria-hidden="true" />
+            </Link>
+          ))}
+        </nav>
         <div className="mx-auto mt-5 flex w-full max-w-sm justify-center px-1 sm:mt-6 sm:px-0">
           <Button asChild size="lg" className="h-auto min-h-11 w-full whitespace-normal rounded-xl px-6 py-3 text-center shadow-md sm:w-auto sm:min-w-64 sm:px-10">
-            <Link href={localizeHref("/guide/agefield-high-rock-the-school-walkthrough", locale)}>{home.hero.primaryCta}</Link>
+            <Link href={localizeHref("/guide", locale)}>{home.hero.primaryCta}</Link>
           </Button>
         </div>
       </section>
@@ -343,7 +355,7 @@ export default function HomePageClient({ home, nav, locale, articles, recentArti
         <p className="mx-auto mt-3 max-w-2xl text-sm leading-6 text-blue-50/90 sm:text-base">{home.finalCta.description}</p>
         <div className="mx-auto mt-6 flex w-full max-w-sm justify-center px-1 sm:mt-7 sm:px-0">
           <Button asChild size="lg" className="h-auto min-h-11 w-full whitespace-normal bg-[hsl(var(--nav-theme-light))] px-6 py-3 text-center font-bold text-[hsl(215_55%_16%)] shadow-lg hover:bg-[hsl(43_91%_66%)] sm:w-auto sm:min-w-64 sm:px-10">
-            <Link href={localizeHref("/guide/agefield-high-rock-the-school-walkthrough", locale)}>{home.finalCta.primary}<ArrowRight className="ml-2 h-4 w-4" /></Link>
+            <Link href={localizeHref("/guide", locale)}>{home.finalCta.primary}<ArrowRight className="ml-2 h-4 w-4" /></Link>
           </Button>
         </div>
         <Link href={STEAM_PLAY_URL} className="mt-4 inline-flex text-sm font-semibold text-white/90 underline decoration-white/40 underline-offset-4 transition hover:text-white">{home.finalCta.secondary}</Link>

@@ -9,6 +9,7 @@
   "nav": {
     "missions": "Missions",
     "characters": "Characters",
+    "map": "Map",
     "endings": "Endings",
     "guide": "Guide",
     "release": "Release",
@@ -59,7 +60,7 @@
     "hero": {
       "eyebrow": "Fan-Made Community Wiki",
       "title": "Agefield High: Rock the School Wiki",
-      "description": "Step into Sam's senior year in a small open world inspired by the rebellious teen comedies of the early 2000s. Attend class or skip it, explore Agefield, complete missions, earn cash, upgrade your style, and choose how your school legend ends.",
+      "description": "Find the complete walkthrough, interactive location map, character profiles, and Ashley vs Chloe endings guide for Sam's senior year in Agefield.",
       "stats": [
         "Released Aug 12, 2026",
         "32 Main Missions",

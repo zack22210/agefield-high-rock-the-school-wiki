@@ -6,7 +6,7 @@ import { routing, type Locale } from "@/i18n/routing";
 import en from "@/locales/en.json";
 import HomePageClient from "./HomePageClient";
 
-const siteUrl = (process.env.NEXT_PUBLIC_SITE_URL || "https://agefieldhighrocktheschool.online").replace(/\/$/, "");
+const siteUrl = (process.env.NEXT_PUBLIC_SITE_URL || "https://www.agefieldhighrocktheschool.online").replace(/\/$/, "");
 
 type Messages = typeof en;
 
@@ -14,12 +14,12 @@ export async function generateMetadata({ params }: { params: Promise<{ locale: s
   const { locale } = await params;
   const messages = (await getMessages({ locale })) as Messages;
   const image = `${siteUrl}/images/hero.webp`;
-  const title = "Agefield High: Rock the School Wiki";
-  const description = "Fan-made Agefield High: Rock the School wiki with mission walkthroughs, endings, platform details, achievements, and gameplay tips.";
+  const title = "Agefield High Wiki – Walkthrough, Map, Endings & Guides";
+  const description = "Agefield High: Rock the School wiki with the complete walkthrough, usable map, character guide, endings, missions, and gameplay help.";
   return {
     title,
     description,
-    alternates: { canonical: locale === "en" ? "/" : `/${locale}`, languages: Object.fromEntries(routing.locales.map((lang) => [lang, lang === "en" ? "/" : `/${lang}`])) },
+    alternates: { canonical: locale === "en" ? "/" : `/${locale}`, languages: { en: "/", es: "/es", "pt-BR": "/br", ru: "/ru", "x-default": "/" } },
     openGraph: { title, description, url: locale === "en" ? siteUrl : `${siteUrl}/${locale}`, siteName: "Agefield High: Rock the School Wiki", images: [{ url: image, width: 2500, height: 1168, alt: "Agefield High: Rock the School" }] },
     twitter: { card: "summary_large_image", title, description, images: [image] },
   };

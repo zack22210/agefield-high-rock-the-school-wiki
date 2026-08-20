@@ -18,11 +18,27 @@ import { routing, type Locale } from "@/i18n/routing";
 import en from "@/locales/en.json";
 import { estimateReadingTime, getArticlePresentation } from "@/lib/article-presentation";
 
-const siteUrl = (process.env.NEXT_PUBLIC_SITE_URL || "https://agefieldhighrocktheschool.online").replace(/\/$/, "");
+const siteUrl = (process.env.NEXT_PUBLIC_SITE_URL || "https://www.agefieldhighrocktheschool.online").replace(/\/$/, "");
 type Messages = typeof en;
 
 function languageAlternates(pathname: string) {
-  return Object.fromEntries(routing.locales.map((locale) => [locale, locale === "en" ? pathname : `/${locale}${pathname}`]));
+  const walkthrough = "/guide/agefield-high-rock-the-school-walkthrough";
+  if (pathname === "/guide" || pathname === walkthrough) {
+    return {
+      en: "/guide",
+      es: `/es${walkthrough}`,
+      "pt-BR": `/br${walkthrough}`,
+      ru: `/ru${walkthrough}`,
+      "x-default": "/guide",
+    };
+  }
+  return {
+    en: pathname,
+    es: `/es${pathname}`,
+    "pt-BR": `/br${pathname}`,
+    ru: `/ru${pathname}`,
+    "x-default": pathname,
+  };
 }
 
 function localizedUrl(pathname: string, locale: Locale) {
@@ -38,6 +54,15 @@ export async function generateStaticParams() {
 export async function generateMetadata({ params }: { params: Promise<{ locale: Locale; slug: string[] }> }): Promise<Metadata> {
   const { locale, slug } = await params;
   const messages = (await getMessages({ locale })) as Messages;
+  if (locale === "en" && slug.length === 1 && slug[0] === "guide") {
+    const item = await getContent("guide", ["agefield-high-rock-the-school-walkthrough"], locale);
+    if (!item) return { title: "Not Found" };
+    return {
+      title: item.metadata.title,
+      description: item.metadata.description,
+      alternates: { canonical: "/guide", languages: languageAlternates("/guide") },
+    };
+  }
   if (slug.length === 1 && CONTENT_TYPES.includes(slug[0])) {
     const ct = slug[0];
     const ctTitle = ct.replace(/-/g, " ").replace(/\b\w/g, (c) => c.toUpperCase());
@@ -52,11 +77,14 @@ export async function generateMetadata({ params }: { params: Promise<{ locale: L
   if (!item) return { title: "Not Found" };
   const pathname = `/${contentType}/${articleSlug.join("/")}`;
   const image = item.metadata.image?.startsWith("http") ? item.metadata.image : `${siteUrl}${item.metadata.image ?? "/images/hero.webp"}`;
-  return { title: `${item.metadata.title} — Agefield High Wiki`, description: item.metadata.description, alternates: { canonical: locale === "en" ? pathname : `/${locale}${pathname}`, languages: languageAlternates(pathname) }, openGraph: { type: "article", title: item.metadata.title, description: item.metadata.description, url: localizedUrl(pathname, locale), siteName: "Agefield High: Rock the School Wiki", images: [image] }, twitter: { card: "summary_large_image", title: item.metadata.title, description: item.metadata.description, images: [image] } };
+  return { title: item.metadata.title, description: item.metadata.description, alternates: { canonical: locale === "en" ? pathname : `/${locale}${pathname}`, languages: languageAlternates(pathname) }, openGraph: { type: "article", title: item.metadata.title, description: item.metadata.description, url: localizedUrl(pathname, locale), siteName: "Agefield High: Rock the School Wiki", images: [image] }, twitter: { card: "summary_large_image", title: item.metadata.title, description: item.metadata.description, images: [image] } };
 }
 
 export default async function SlugPage({ params }: { params: Promise<{ locale: Locale; slug: string[] }> }) {
   const { locale, slug } = await params;
+  if (locale === "en" && slug.length === 1 && slug[0] === "guide") {
+    return <DetailPage locale={locale} contentType="guide" slug={["agefield-high-rock-the-school-walkthrough"]} pathnameOverride="/guide" />;
+  }
   if (slug.length === 1) return <NavigationPage locale={locale} contentType={slug[0]} />;
   return <DetailPage locale={locale} contentType={slug[0]} slug={slug.slice(1)} />;
 }
@@ -123,17 +151,18 @@ async function NavigationPage({ locale, contentType }: { locale: Locale; content
   );
 }
 
-async function DetailPage({ locale, contentType, slug }: { locale: Locale; contentType: string; slug: string[] }) {
-  if (!CONTENT_TYPES.includes(contentType)) notFound();
+async function DetailPage({ locale, contentType, slug, pathnameOverride }: { locale: Locale; contentType: string; slug: string[]; pathnameOverride?: string }) {
+  if (!CONTENT_TYPES.includes(contentType) && contentType !== "characters") notFound();
   const messages = (await getMessages({ locale })) as Messages;
   const item = await getContent(contentType, slug, locale);
   if (!item) notFound();
-  const pathname = `/${contentType}/${slug.join("/")}`;
+  const pathname = pathnameOverride ?? `/${contentType}/${slug.join("/")}`;
   const tocLabel = messages.shared.tableOfContents || messages.shared.inThisSection || "Table of Contents";
   const sectionLabel = contentType.replace(/-/g, " ").replace(/\b\w/g, (c) => c.toUpperCase());
+  const sectionPath = contentType === "characters" ? "/details/agefield-high-rock-the-school-characters" : `/${contentType}`;
   const articleImage = item.metadata.image?.startsWith("http") ? item.metadata.image : `${siteUrl}${item.metadata.image ?? "/images/hero.webp"}`;
-  const articleData = { "@context": "https://schema.org", "@type": "Article", headline: item.metadata.title, description: item.metadata.description, image: articleImage, inLanguage: locale, datePublished: item.metadata.date, dateModified: item.metadata.lastModified ?? item.metadata.date, mainEntityOfPage: localizedUrl(pathname, locale), author: { "@type": "Organization", name: "Agefield High: Rock the School Wiki", url: siteUrl }, publisher: { "@type": "Organization", name: "Agefield High: Rock the School Wiki", url: siteUrl, logo: { "@type": "ImageObject", url: `${siteUrl}/android-chrome-512x512.png` } } };
-  const breadcrumbData = { "@context": "https://schema.org", "@type": "BreadcrumbList", itemListElement: [{ "@type": "ListItem", position: 1, name: "Home", item: localizedUrl("/", locale) }, { "@type": "ListItem", position: 2, name: sectionLabel, item: localizedUrl(`/${contentType}`, locale) }, { "@type": "ListItem", position: 3, name: item.metadata.title, item: localizedUrl(pathname, locale) }] };
+  const articleData = { "@context": "https://schema.org", "@type": "Article", headline: item.metadata.heading ?? item.metadata.title, description: item.metadata.description, image: articleImage, inLanguage: locale === "br" ? "pt-BR" : locale, datePublished: item.metadata.date, dateModified: item.metadata.lastModified ?? item.metadata.date, mainEntityOfPage: localizedUrl(pathname, locale), author: { "@type": "Organization", name: "Agefield High: Rock the School Wiki", url: siteUrl }, publisher: { "@type": "Organization", name: "Agefield High: Rock the School Wiki", url: siteUrl, logo: { "@type": "ImageObject", url: `${siteUrl}/android-chrome-512x512.png` } } };
+  const breadcrumbData = { "@context": "https://schema.org", "@type": "BreadcrumbList", itemListElement: [{ "@type": "ListItem", position: 1, name: "Home", item: localizedUrl("/", locale) }, { "@type": "ListItem", position: 2, name: sectionLabel, item: localizedUrl(sectionPath, locale) }, { "@type": "ListItem", position: 3, name: item.metadata.title, item: localizedUrl(pathname, locale) }] };
 
   const relatedLabel = messages.shared.relatedGuides || "Related Guides";
   const allInSection = await getAllContent(contentType, locale);
@@ -152,13 +181,13 @@ async function DetailPage({ locale, contentType, slug }: { locale: Locale; conte
           <Breadcrumbs
             items={[
               { label: messages.shared.home, href: localizeHref("/", locale) },
-              { label: sectionLabel, href: localizeHref(`/${contentType}`, locale) },
+              { label: sectionLabel, href: localizeHref(sectionPath, locale) },
               { label: item.metadata.title },
             ]}
           />
           <div className="max-w-[72ch]">
             <Badge className="bg-[hsl(var(--nav-theme))] text-primary-foreground">{presentation.label}</Badge>
-            <h1 className="mt-3 text-3xl font-extrabold tracking-tight text-foreground sm:text-5xl">{item.metadata.title}</h1>
+            <h1 className="mt-3 text-3xl font-extrabold tracking-tight text-foreground sm:text-5xl">{item.metadata.heading ?? item.metadata.title}</h1>
             <div className="text-meta mt-4 flex flex-wrap items-center gap-x-5 gap-y-2 text-sm">
               <span className="inline-flex items-center gap-1.5"><CalendarDays className="h-4 w-4" />{item.metadata.lastModified ?? item.metadata.date}</span>
               <span className="inline-flex items-center gap-1.5"><Clock3 className="h-4 w-4" />{readingMinutes} min read</span>
